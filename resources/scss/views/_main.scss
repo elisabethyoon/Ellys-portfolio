@@ -15,7 +15,10 @@
   transition-duration: 1s;
   opacity: 0;
   @media (max-width: $mo-l) {
-    font-size: rem(80px);
+    font-size: rem(60px);
+  }
+  @media (max-width: $mo-s) {
+    font-size: rem(48px);
   }
   &.fill {
     transform: translateY(0);
@@ -28,8 +31,9 @@
     top: 35%;
     left: 50%;
     margin-left: -3px;
-    width: 6px;
-    height: 70px;
+    @include size(6px, 70px);
+    // width: 6px;
+    // height: 70px;
     background-color: $blue_20;
     @media (max-width: $mo-l) {
       margin-left: 0;
@@ -45,7 +49,10 @@
   transform: translateX(-100px);
   opacity: 0;
   @media (max-width: $mo-l) {
-    font-size: rem(36px);
+    font-size: rem(30px);
+  }
+  @media (max-width: $mo-s) {
+    font-size: rem(28px);
   }
   span {
     color: $blue_20;
@@ -67,17 +74,18 @@
 /*--- mainVisual ---*/
 .main-visual-contents {
   .main-visual-bg {
-    width: 100%;
-    height: 100vh;
+    @include size(100%, 100vh);
+    // width: 100%;
+    // height: 100vh;
     @include _background-image('main-visual/main-bg.jpeg');
     background-position: 50% 50%;
     background-size: cover;
     background-attachment: fixed;
     .bg-inner {
       background-color: $red_10;
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
+      @include size(100%, 100%) // width: 100%;
+        // height: 100%;
+        opacity: 0.3;
     }
   }
 }
@@ -85,11 +93,12 @@
 .title-portfolio {
   position: absolute;
   top: 0;
-  width: 100%;
+  // width: 100%;
+  // height: 100vh;
+  @include size(100%, 100vh);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   justify-content: center;
   .main-title {
     opacity: 0;
@@ -103,6 +112,7 @@
     }
     @media (max-width: $mo-l) {
       text-align: center;
+      font-size: rem(36px);
     }
   }
   .main-text {
@@ -115,6 +125,10 @@
     letter-spacing: 2px;
     @media (max-width: $tb-s) {
       font-size: rem(26px);
+    }
+    @media (max-width: $mo-l) {
+      font-size: rem(18px);
+      letter-spacing: 1px;
     }
   }
 }
@@ -152,22 +166,19 @@
   }
   .profile-img {
     position: relative;
-    width: 400px;
-    height: 550px;
+    @include size(400px, 550px);
     margin-top: 60px;
     border-radius: 20px;
+    box-shadow: 0 20px 30px 0 rgba(94, 94, 94, 0.2);
     @media (max-width: $tb-s) {
-      width: 340px;
-      height: 480px;
-    }
-    @media (max-width: $tb-xs) {
       z-index: 1;
-      width: 340px;
-      height: 480px;
+      @include size(340px, 480px);
     }
     @media (max-width: $mo-l) {
-      width: 320px;
-      height: 40 0px;
+      @include size(320px, 400px);
+    }
+    @media (max-width: $mo-s) {
+      @include size(100%, auto);
     }
   }
   .intro-container {
@@ -178,6 +189,9 @@
     }
     @media (max-width: $tb-xs) {
       margin-top: -280px;
+    }
+    @media (max-width: $mo-l) {
+      margin-top: -150px;
     }
     .sub-text {
       position: relative;
@@ -193,6 +207,13 @@
       @media (max-width: $tb-s) {
         font-size: rem(30px);
       }
+      @media (max-width: $mo-l) {
+        font-size: rem(26px);
+        line-height: 1.4;
+      }
+      @media (max-width: $mo-s) {
+        font-size: rem(22px);
+      }
       .text {
         display: block;
       }
@@ -200,8 +221,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        @include size(100%, 100%);
         transform-origin: bottom;
         background-color: $white;
       }
@@ -220,7 +240,7 @@
     .container-section {
       margin-bottom: 100px;
       @media (max-width: $mo-l) {
-        margin-botton: 60px;
+        margin-bottom: 60px;
       }
     }
   }
@@ -232,6 +252,9 @@
   @media (max-width: $mo-l) {
     margin-left: 24px;
   }
+  @media (max-width: $mo-s) {
+    margin-left: 0;
+  }
   .info-about {
     margin-top: 40px;
     font-size: rem(19px);
@@ -242,6 +265,7 @@
     }
     @media (max-width: $mo-l) {
       margin-top: 20px;
+      word-break: keep-all;
     }
     &:first-child {
       margin-top: 0;
@@ -258,6 +282,10 @@
   @media (max-width: $mo-l) {
     margin-left: 24px;
     padding: 30px 0 0;
+  }
+  @media (max-width: $mo-s) {
+    margin-left: 0;
+    padding: 0;
   }
   .career-lists {
     display: flex;
@@ -277,7 +305,9 @@
       font-size: rem(18px);
     }
     @media (max-width: $mo-l) {
+      width: 100%;
       margin-bottom: 14px;
+      font-size: rem(16px);
     }
   }
   .article {
@@ -285,12 +315,16 @@
       width: 70%;
     }
     @media (max-width: $mo-l) {
+      width: 100%;
       padding-left: 24px;
     }
     .company {
       font-size: rem(25px);
       @media (max-width: $tb-xs) {
         font-size: rem(22px);
+      }
+      @media (max-width: $mo-l) {
+        font-size: rem(20px);
       }
     }
     .sub-text {
@@ -299,6 +333,9 @@
       color: $gray_30;
       @media (max-width: $tb-xs) {
         margin-top: 0;
+      }
+      @media (max-width: $mo-l) {
+        font-size: rem(15px);
       }
     }
     .info-text {
@@ -312,6 +349,13 @@
       li {
         margin-top: 6px;
         font-size: rem(16px);
+        @media (max-width: $mo-l) {
+          word-break: keep-all;
+          font-size: rem(14px);
+        }
+        @media (max-width: $mo-s) {
+          line-height: 1.8;
+        }
       }
     }
   }
@@ -347,6 +391,9 @@
     margin-top: 0;
     padding: 0 48px;
   }
+  @media (max-width: $mo-s) {
+    padding: 0 24px;
+  }
   .list-item {
     display: flex;
     justify-content: space-between;
@@ -362,6 +409,9 @@
     @media (max-width: $mo-l) {
       padding: 80px 0;
       border-bottom: 1px dashed #d6d6d6;
+    }
+    @media (max-width: $mo-s) {
+      padding: 60px 0;
     }
     .scroll-box01 {
       transform: translateX(-110%);
@@ -395,7 +445,6 @@
     margin: 0 auto;
     @media (max-width: $tb-l) {
       max-width: 90%;
-      // width: 100%;
     }
     @media (max-width: $tb-s) {
       width: 100%;
@@ -413,6 +462,10 @@
     @media (max-width: $mo-l) {
       font-size: rem(24px);
     }
+    @media (max-width: $mo-s) {
+      font-size: rem(20px);
+      word-break: keep-all;
+    }
     &::before {
       content: '';
       display: block;
@@ -420,15 +473,13 @@
       position: absolute;
       top: -10px;
       left: -17px;
-      width: 40px;
-      height: 40px;
+      @include size(40px, 40px);
       border-radius: 50%;
       background-color: $blue_10;
       @media (max-width: $mo-l) {
         top: -6px;
         left: -10px;
-        width: 24px;
-        height: 24px;
+        @include size(24px, 24px);
       }
     }
   }
@@ -441,6 +492,7 @@
       padding-top: 30px;
     }
     @media (max-width: $mo-l) {
+      word-break: keep-all;
       font-size: rem(14px);
     }
   }
@@ -453,32 +505,26 @@
   }
   .icon-arrow {
     display: inline-block;
-    width: 24px;
-    height: 22px;
+    @include size(24px, 22px);
     vertical-align: sub;
     background-size: 100% 100%;
     @include _background-image('icon/icon-arrow.png');
     @media (max-width: $mo-l) {
-      width: 20px;
-      height: 18px;
+      @include size(20px, 18px);
       margin-left: 4px;
     }
   }
 }
 .column-view {
-  width: 50%;
-  height: 100vh;
+  @include size(50%, 100vh);
   @media (max-width: $tb-l) {
-    // width: 100%;
     height: 60vh;
   }
   @media (max-width: $tb-s) {
-    width: 100%;
-    height: 50vh;
+    @include size(100%, 50vh);
   }
   .work-image {
-    width: 100%;
-    height: 100%;
+    @include size(100%, 100%);
     background-size: cover;
     cursor: pointer;
   }
@@ -531,6 +577,9 @@
     @media (max-width: $mo-l) {
       margin-top: 20px;
     }
+    @media (max-width: $mo-s) {
+      padding-bottom: 150px;
+    }
     .info-wrapper {
       display: flex;
       justify-content: center;
@@ -540,7 +589,11 @@
         font-size: rem(34px);
         letter-spacing: 2px;
         @media (max-width: $mo-l) {
-          font-size: rem(24px);
+          font-size: rem(22px);
+        }
+        @media (max-width: $mo-s) {
+          font-size: rem(18px);
+          letter-spacing: 1px;
         }
       }
       .contact-box {
@@ -551,8 +604,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100px;
-          height: 40px;
+          @include size(100px, 40px);
           margin: 0 20px;
           border-radius: 20px;
           background-color: $body-font-color;
