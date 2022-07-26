@@ -21,27 +21,8 @@
 @import './utils/mixin/_vw';
 @import './utils/mixin/_centerMode';
 
-// components
-@import './components/_components';
-// 버튼
-@import './components/_button';
-// 테이블
-@import './components/_data-table';
-// pagination
-@import './components/_pagination';
-// 셀렉트박스
-@import './components/_selectbox';
-// layer-popup - 테이블형식
-// @import './components/_layer-popup-table';
-// layer-popup - flex형식
-@import './components/_layer-popup';
-// 애니메이션
-@import './components/_animation';
-
 // reset
 @import './_reset';
 
-// 공통
-@import './views/_common';
 // 메인
 @import './views/_main';

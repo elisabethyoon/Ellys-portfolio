@@ -296,7 +296,7 @@
     .sub-text {
       margin-top: 8px;
       font-size: rem(16px);
-      color: $lightSlightly;
+      color: $gray_30;
       @media (max-width: $tb-xs) {
         margin-top: 0;
       }
@@ -322,16 +322,13 @@
     padding: 60px 0;
     .title-area {
       padding-left: 60px;
-      @media (max-width: $tb-l) {
-        // margin-bottom: 100px;
-      }
       @media (max-width: $mo-l) {
         padding: 0 24px;
       }
       .stack {
         margin-top: 15px;
         font-size: rem(16px);
-        color: $slightly;
+        color: $gray_20;
         opacity: 0;
         transform: translateY(30px);
         @media (max-width: $mo-l) {
