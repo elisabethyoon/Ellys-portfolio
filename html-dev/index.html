@@ -2,7 +2,11 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content_old="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no" content="width=device-width, initial-scale=1.0, user-scalable=no, height=device-height, maximum-scale=1.0" />
+    <meta
+      name="viewport"
+      content_old="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, height=device-height, maximum-scale=1.0"
+    />
     <meta name="title" content="" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,36 +46,13 @@
             <img src="../resources/images/icon/icon-scroll-mouse.svg" alt="스크롤다운 이미지" class="icon-mouse" />
           </div>
         </section>
-        <section>
-          <div class="intro-contents">
-            <img src="../resources/images/profile_img1.JPG" alt="이미지" class="profile-img" />
-            <div class="intro-container">
-              <div class="sub-text scroll-animation-element">
-                <span class="text intro-title01">반갑습니다 !</span>
-                <div class="mask mask1"></div>
-              </div>
-              <div class="sub-text scroll-animation-element">
-                <span class="text intro-title02">저는 계속해서 도전하고</span>
-                <div class="mask mask2"></div>
-              </div>
-              <div class="sub-text scroll-animation-element">
-                <span class="text intro-title02">좋아하는 일을 즐기는,</span>
-                <div class="mask mask2"></div>
-              </div>
-              <div class="sub-text scroll-animation-element">
-                <span class="text intro-title02">일 잘하는 웹 퍼블리셔입니다.</span>
-                <div class="mask mask2"></div>
-              </div>
-            </div>
-          </div>
-        </section>
         <section class="about-contents">
-          <p class="title-menu">
-            ABOUT
-          </p>
-          <div class="list-container">
+          <div class="title-menu">
+            <span class="section-number">01</span>
+            <h2 class="sc-title">ABOUT ME</h2>
+          </div>
+          <div class="intro-wrap">
             <div class="container-section scroll-animation-title">
-              <strong class="section-title st01"><span>I</span>ntroduce</strong>
               <div class="about-info-text">
                 <p class="info-about">
                   저는<br />
@@ -94,283 +75,128 @@
                 </p>
               </div>
             </div>
-            <div class="container-section scroll-animation-title">
-              <strong class="section-title st02"> <span>C</span>areer </strong>
-              <div class="section-inner">
-                <div class="career-lists">
-                  <div class="period">2021. 04 ~ 2022. 06</div>
-                  <div class="article">
-                    <strong class="company">세탁특공대</strong>
-                    <p class="sub-text">engineering / 프론트엔드 개발자</p>
-                    <ul class="info-text">
-                      <li class="">- React Native, ES6를 활용한 UI 개발 및 Redux-thunk를 이용한 상태관리</li>
-                    </ul>
-                  </div>
+            <img src="../resources/images/profile_img2.jpg" alt="이미지" class="profile-img2" />
+          </div>
+        </section>
+        <section class="career-contents">
+          <div class="scroll-animation-title">
+            <div class="title-menu">
+              <span class="section-number">02</span>
+              <h2 class="sc-title">CAREER</h2>
+            </div>
+            <div class="section-inner">
+              <div class="career-lists">
+                <div class="period">2021. 04 ~ 2022. 06</div>
+                <div class="article">
+                  <strong class="company">세탁특공대</strong>
+                  <p class="sub-text">engineering / 프론트엔드 개발자</p>
+                  <ul class="info-text">
+                    <li class="">- React Native, ES6를 활용한 UI 개발 및 Redux-thunk를 이용한 상태관리</li>
+                  </ul>
                 </div>
               </div>
-              <div class="section-inner">
-                <div class="career-lists">
-                  <div class="period">2017. 09 ~ 2020. 10</div>
-                  <div class="article">
-                    <strong class="company">마켓디자이너스</strong>
-                    <p class="sub-text">개발팀 / 퍼블리셔</p>
-                    <ul class="info-text">
-                      <li class="">- 웹표준/웹접근성/UI/UX를 고려한 퍼블리싱</li>
-                      <li class="">- javascript / jquery를 이용한 스크립트개발</li>
-                    </ul>
-                  </div>
+            </div>
+            <div class="section-inner">
+              <div class="career-lists">
+                <div class="period">2017. 09 ~ 2020. 10</div>
+                <div class="article">
+                  <strong class="company">마켓디자이너스</strong>
+                  <p class="sub-text">개발팀 / 퍼블리셔</p>
+                  <ul class="info-text">
+                    <li class="">- 웹표준/웹접근성/UI/UX를 고려한 퍼블리싱</li>
+                    <li class="">- javascript / jquery를 이용한 스크립트개발</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <section class="portfolio-contents">
-          <p class="title-menu">
-            PORTFOLIO
-          </p>
+          <div class="title-menu">
+            <span class="section-number">03</span>
+            <h2 class="sc-title">PROJECT</h2>
+          </div>
           <div class="portfolio-section">
-            <div class="title-area scroll-animation-title">
-              <strong class="section-title st03"><span>W</span>ork experience</strong>
-              <p class="stack">
-                Stack : React, ReactNative, HTML5, css3, SCSS, styled-component, javascript, jquery
-              </p>
+            <div class="title-area scroll-animation-title"></div>
+            <div class="swiper mySwiper project-wrap">
+              <ul class="swiper-wrapper slider-contents">
+                <li class="swiper-slide pj-item">
+                  <p class="project-title">세탁특공대</p>
+                  <div class="project-contents">
+                    <div class="project-image01 pj-box"></div>
+                    <div class="inner-contents">
+                      <div class="project-text-area">
+                        <p class="pj-text">
+                          세탁특공대 유저앱 & 요원앱 유지보수<br />
+                          보관서비스 프로젝트 & 서비스 피드백 프로젝트<br /><br />skill : ReactNative / redux-thunk / Axios / styled-component / javascript
+                        </p>
+                        <a href="./detailpage01.html" target="_blank" class="btn-more">More</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide pj-item">
+                  <p class="project-title">위매치다이사</p>
+                  <div class="project-contents">
+                    <div class="project-image02 pj-box"></div>
+                    <div class="inner-contents">
+                      <div class="project-text-area">
+                        <p class="pj-text">
+                          위매치다이사 & 위매치다이사 원룸 리뉴얼 <br />
+                          위매치다이사 파트너<br /><br />skill : HTML5 / css3 / javascript / jquery / React / Axios / styed-component
+                        </p>
+                        <a href="./detailpage02.html" target="_blank" class="btn-more">More</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide pj-item">
+                  <p class="project-title">마켓디자이너스</p>
+                  <div class="project-contents">
+                    <div class="project-image03 pj-box"></div>
+                    <div class="inner-contents">
+                      <div class="project-text-area">
+                        <p class="pj-text">마켓디자이너스 리뉴얼<br /><br />skill : HTML5 / scss / css3 / javascript / jquery / Vue / Vue Router / Nuxt / Axios</p>
+                        <a href="./detailpage03.html" target="_blank" class="btn-more">More</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide pj-item">
+                  <p class="project-title">위매치부동산</p>
+                  <div class="project-contents">
+                    <div class="project-image04 pj-box"></div>
+                    <div class="inner-contents">
+                      <div class="project-text-area">
+                        <p class="pj-text">위매치부동산 & 오즈의집 리뉴얼<br /><br />skill : HTML5 / css3 / javascript / jquery</p>
+                        <a href="./detailpage04.html" target="_blank" class="btn-more">More</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide pj-item">
+                  <p class="project-title">더모기지</p>
+                  <div class="project-contents">
+                    <div class="project-image05 pj-box"></div>
+                    <div class="inner-contents">
+                      <div class="project-text-area">
+                        <p class="pj-text">더모기지 & 위매치머니 & 토핑머니 리뉴얼<br /><br />skill : HTML5 / css3 / javascript / jquery</p>
+                        <a href="./detailpage05.html" target="_blank" class="btn-more">More</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="swiper-button-next">NEXT</div>
+              <div class="swiper-button-prev">PREV</div>
             </div>
-            <ul class="portfolio-list">
-              <li class="list-item publ01">
-                <div class="column-text scroll-box01">
-                  <div class="text-area">
-                    <h3 class="work-info">세탁특공대 보관서비스 프로젝트</h3>
-                    <p class="info-description">
-                      * 세탁특공대 보관서비스 22년 2월 론칭<br />
-                      <span class="ft-bold">작업 내용</span><br />
-                      새로운 서비스를 출범함에 따라 보관서비스 프로젝트를 맡게 되었으며, 프론트 작업 수행. <br />UI 컴포넌트별 마크업, 기능별 로직 컴포넌트 작업, api 호출 등 작업.
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간</span> 2021년 11월 ~ 2021년 12월 <br />
-                      <span class="ft-bold">skill</span> ReactNative / redux-thunk / Axios / styled-component / javascript <br />
-                      <span class="ft-bold">Flatform</span> ReactNative<br />
-                      <span class="ft-bold">기여도</span> 80%<br />
-                    </p>
-                  </div>
-                </div>
-                <div class="column-view scroll-box02">
-                  <div class="work-image scroll-animation scroll-project-image01"></div>
-                </div>
-              </li>
-              <li class="list-item publ02">
-                <div class="column-view scroll-box01">
-                  <div class="work-image scroll-animation scroll-project-image02"></div>
-                </div>
-                <div class="column-text scroll-box02">
-                  <div class="text-area">
-                    <h3 class="work-info">세탁특공대 서비스 피드백 프로젝트</h3>
-                    <p class="info-description">
-                      * 세탁특공대 서비스 피드백 21년 10월 론칭<br />
-                      <span class="ft-bold">작업 내용</span><br />
-                      세탁물에 문제가 생겼을 때 고객센터로의 인입량을 줄이기 위해서 서비스 피드백 프로세스를 출범하였고, 프론트 작업 수행. <br />팀으로 작업하였으며, UI 컴포넌트를 나눠 재사용 할 수
-                      있는 컴포넌트 작업. <br /><br />
-                      <span class="ft-bold">기간 </span> 2021년 07월 ~ 2021년 10월<br />
-                      <span class="ft-bold">skill</span> ReactNative / redux-thunk / Axios / styled-component / javascript <br />
-                      <span class="ft-bold">Flatform</span> ReactNative<br />
-                      <span class="ft-bold">기여도</span> 30%<br />
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-item publ03">
-                <div class="column-text scroll-box01">
-                  <div class="text-area">
-                    <h3 class="work-info">세탁특공대 유저앱 / 요원앱 유지보수</h3>
-                    <p class="info-description">
-                      <span class="ft-bold">작업 내용</span><br />
-                      유저앱과 요원앱 유지보수 진행. <br /><br />
-                      <span class="ft-bold">기간 </span> 2021년 04월 ~ 2022년 06월<br />
-                      <span class="ft-bold">skill</span> ReactNative / redux-thunk / Axios / styled-component / javascript <br />
-                      <span class="ft-bold">Flatform</span> ReactNative<br />
-                      <span class="ft-bold">기여도</span> 50%<br />
-                    </p>
-                  </div>
-                </div>
-                <div class="column-view scroll-box02">
-                  <div class="work-image scroll-animation scroll-project-image03"></div>
-                </div>
-              </li>
-              <li class="list-item publ04">
-                <div class="column-view scroll-box01">
-                  <div class="work-image scroll-animation scroll-project-image04"></div>
-                </div>
-                <div class="column-text scroll-box02">
-                  <div class="text-area">
-                    <h3 class="work-info">위매치다이사 원룸 리뉴얼</h3>
-                    <p class="info-description">
-                      <span class="ft-bold">작업 내용</span><br />
-                      기존 접수 프로세스 보다 더 간편하게 접수 할 수 있는 서비스로 리뉴얼 진행<br />
-                      component 작업 / api호출 등 서브작업 위주 <br />
-                      기존 마크업 업무에서 프론트엔드로 전향하고자 프로젝트에 자발적으로 투입함
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2020년 7월 ~ 2020년 10월<br />
-                      <span class="ft-bold">skill</span> React / Axios / styed-component / javascript<br />
-                      <span class="ft-bold">Flatform</span> 반응형<br />
-                      <span class="ft-bold">기여도</span> 20%<br /><br />
-                      <a href="https://oneroom.wematch.com/requests/order" class="link-page" target="_blank"
-                        >홈페이지 바로가기
-                        <span class="icon-arrow"></span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-item publ05">
-                <div class="column-text scroll-box01">
-                  <div class="text-area">
-                    <h3 class="work-info">위매치부동산 리뉴얼</h3>
-                    <p class="info-description">
-                      * 서비스명 변경 '위매치부동산' -> (현)'오즈의 집' <br />
-                      <span class="ft-bold">작업 내용</span><br />
-                      위매치 서비스 디자인 통합으로 인해 리뉴얼 작업 진행<br />
-                      순차적으로 페이지 리뉴얼 마크업 작업, javascript/jquery 스크립트 개발
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2020년 4월 ~ 2020년 6월<br />
-                      <span class="ft-bold">skill</span> HTML5 / css3 / javascript / jquery <br />
-                      <span class="ft-bold">Flatform</span> PC / Mobile <br />
-                      <span class="ft-bold">기여도</span> 50%<br /><br />
-                      <a href="https://www.ozshouse.com/" class="link-page" target="_blank"
-                        >홈페이지 바로가기
-                        <span class="icon-arrow"></span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                <div class="column-view scroll-box02">
-                  <div class="work-image scroll-animation scroll-project-image05"></div>
-                </div>
-              </li>
-              <li class="list-item publ06">
-                <div class="column-view scroll-box01">
-                  <div class="work-image scroll-animation scroll-project-image06"></div>
-                </div>
-                <div class="column-text scroll-box02">
-                  <div class="text-area">
-                    <h3 class="work-info">마켓디자이너스</h3>
-                    <p class="info-description">
-                      <span class="ft-bold">작업 내용</span><br />
-                      기존 마크업 업무에서 Vue 언어로 신규 도입 후 첫 프로젝트 진행<br />
-                      component작업 / api호출 등 서브작업 위주
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2019년 7월 ~ 2019년 10월<br />
-                      <span class="ft-bold">skill</span> Vue / Vue Router / Nuxt / SCSS / Axios / javascript <br />
-                      <span class="ft-bold">Flatform</span> 반응형<br />
-                      <span class="ft-bold">기여도</span> 40%<br /><br />
-                      <a href="https://marketdesigners.com/" class="link-page" target="_blank"
-                        >홈페이지 바로가기
-                        <span class="icon-arrow"></span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-item publ07">
-                <div class="column-text scroll-box01">
-                  <div class="text-area">
-                    <h3 class="work-info">위매치다이사 파트너</h3>
-                    <p class="info-description">
-                      <span class="ft-bold">작업 내용</span><br />
-                      파트너 서비스 리뉴얼 작업 진행<br />
-                      순차적으로 페이지 리뉴얼 마크업, 레거시 중복코드 통합작업 및 공통이미지 sprite 작업개선, javascript/jquery 스크립트 개발
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2019년 4월 ~ 2019년 12월<br />
-                      <span class="ft-bold">skill</span> HTML5 / css3 / javascript / jquery <br />
-                      <span class="ft-bold">Flatform</span> 반응형<br />
-                      <span class="ft-bold">기여도</span> 70%<br />
-                    </p>
-                  </div>
-                </div>
-                <div class="column-view scroll-box02">
-                  <div class="work-image scroll-animation scroll-project-image07"></div>
-                </div>
-              </li>
-              <li class="list-item publ08">
-                <div class="column-view scroll-box01">
-                  <div class="work-image scroll-animation scroll-project-image08"></div>
-                </div>
-                <div class="column-text scroll-box02">
-                  <div class="text-area">
-                    <h3 class="work-info">위매치다이사</h3>
-                    <p class="info-description">
-                      * 서비스명 변경 '다이사' -> (현)'위매치다이사' <br />브랜드명 변경으로 인해 전체 서비스 리뉴얼 진행<br />
-                      <span class="ft-bold">작업 내용</span><br />
-                      전 페이지 마크업, javascript/jquery 스크립트 개발
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2018년 8월 ~ 2018년 11월<br />
-                      <span class="ft-bold">skill</span> HTML5 / css3 / javascript / jquery <br />
-                      <span class="ft-bold">Flatform</span> PC / Mobile<br />
-                      <span class="ft-bold">기여도</span> MO - 100% / PC - 60%<br /><br />
-                      <a href="https://da24.wematch.com/" class="link-page" target="_blank"
-                        >홈페이지 바로가기
-                        <span class="icon-arrow"></span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-item publ09">
-                <div class="column-text scroll-box01">
-                  <div class="text-area">
-                    <h3 class="work-info">더모기지</h3>
-                    <p class="info-description">
-                      * 서비스명 변경 '더 모기지' -> '위매치머니' -> (현)'토핑머니 <br />서비스 리뉴얼<br />
-                      <span class="ft-bold">작업 내용</span><br />
-                      전 페이지 마크업, javascript/jquery 스크립트 개발
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2018년 1월 ~ 2018년 6월<br />
-                      <span class="ft-bold">skill</span> HTML5 / css3 / javascript / jquery <br />
-                      <span class="ft-bold">Flatform</span> PC / Mobile<br />
-                      <span class="ft-bold">기여도</span> MO - 100% / PC - 100% <br /><br />
-                      <a href="https://www.toppingmoney.com/money2.asp?gasubmit=aa" class="link-page" target="_blank"
-                        >홈페이지 바로가기
-                        <span class="icon-arrow"></span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                <div class="column-view scroll-box02">
-                  <div class="work-image scroll-animation scroll-project-image09"></div>
-                </div>
-              </li>
-              <li class="list-item publ10">
-                <div class="column-view scroll-box01">
-                  <div class="work-image scroll-animation scroll-project-image10"></div>
-                </div>
-                <div class="column-text scroll-box02">
-                  <div class="text-area">
-                    <h3 class="work-info">마켓디자이너스</h3>
-                    <p class="info-description">
-                      <span class="ft-bold">작업 내용</span><br />
-                      서비스 리뉴얼 <br />
-                      전 페이지 마크업, javascript/jquery 스크립트 개발
-                      <br />
-                      <br />
-                      <span class="ft-bold">기간 </span> 2017년 11월 ~ 2017년 12월<br />
-                      <span class="ft-bold">skill</span> HTML5 / css3 / javascript / jquery <br />
-                      <span class="ft-bold">Flatform</span> PC / Mobile<br />
-                      <span class="ft-bold">기여도</span> MO - 100% / PC - 60%<br />
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
         </section>
         <section class="contact-contents">
-          <p class="title-menu">
-            CONTACT
-          </p>
+          <div class="title-menu">
+            <span class="section-number">04</span>
+            <h2 class="sc-title">CONTACT</h2>
+          </div>
           <div class="contact-section">
             <div class="info-wrapper">
               <p class="pr-text">함께 일하고 싶은 멋진 동료, 여기있습니다. <br /></p>

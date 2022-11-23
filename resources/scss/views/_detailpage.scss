@@ -1,0 +1,134 @@
+.wrap-contents {
+  min-width: 375px;
+}
+.project-section {
+  display: flex;
+  @media (max-width: $tb-s) {
+    flex-direction: column;
+  }
+  .left-area {
+    width: 60%;
+    padding: 60px;
+    @media (max-width: $tb-l) {
+      padding: 60px 40px;
+    }
+    @media (max-width: $tb-s) {
+      width: 100%;
+    }
+    @media (max-width: $mo-l) {
+      padding: 60px 24px;
+    }
+    .pj-image {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 10px 10px 15px 5px #b8b8b8;
+    }
+    .pj-title {
+      font-size: rem(30px);
+      // font-weight: 400;
+      padding-bottom: 20px;
+      color: $black_10;
+      @media (max-width: $mo-l) {
+        font-size: rem(26px);
+      }
+    }
+  }
+  .right-area {
+    position: relative;
+    width: 40%;
+    padding: 60px 100px;
+    background-color: $green_10;
+    @media (max-width: $tb-l) {
+      padding: 60px 40px;
+    }
+    @media (max-width: $tb-s) {
+      width: 100%;
+    }
+    @media (max-width: $mo-l) {
+      padding: 60px 24px;
+    }
+    .detail-title {
+      @media (max-width: $tb-s) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-popup {
+  display: none; // popup전에 none처리
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  .icon-x {
+    @include _background-image('icon/icon-close-w-24x24.png');
+    width: 36px;
+    height: 36px;
+    background-size: 100%;
+  }
+}
+
+.detail-title {
+  display: inline-block;
+  font-size: rem(36px);
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: $white;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 2px;
+    background-color: $white;
+  }
+  &.bk-color {
+    color: $black_10;
+    &::after {
+      background-color: $black_10;
+    }
+  }
+}
+
+.project-desc {
+  margin-top: 60px;
+  margin-bottom: 150px;
+  @media (max-width: $tb-s) {
+    margin: 0;
+  }
+  .work-desc-box {
+    margin-bottom: 50px;
+  }
+  .sub-title-area {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: rem(20px);
+    font-weight: 600;
+    color: $white;
+    align-items: center;
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   position: absolute;
+    //   left: 28%;
+    //   top: 50%;
+    //   width: 62%;
+    //   height: 1px;
+    //   background-color: $white;
+    // }
+  }
+  .icon-link {
+    display: inline-block;
+    @include _background-image('icon/icon-arrow-w-61x11.png');
+    width: 125px;
+    height: 24px;
+    background-size: 100%;
+  }
+  .sub-text-desc {
+    font-size: rem(16px);
+    font-weight: 300;
+    line-height: 26px;
+    color: $white;
+    word-break: keep-all;
+  }
+}

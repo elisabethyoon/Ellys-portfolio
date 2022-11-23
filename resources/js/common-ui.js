@@ -10,10 +10,10 @@
     contentsAnimation();
     // gsap 애니메이션
     gsapAnimation();
-    // mask 애니메이션
-    maskAnimation();
     // section 타이틀 애니메이션
     sectionTitleAnimation();
+    // project slider
+    slider();
   });
 
   // ------------------------ ui 함수 -----------------------------//
@@ -23,23 +23,7 @@
       //window scroll-top 변수 처리
       var _st = $(window).scrollTop();
       var _windowHeight = $(window).height();
-      var item = $('.portfolio-list > .list-item');
       var title = $('#pagelayout .title-menu');
-
-      // portfolio contents animation
-      item.each(function(i) {
-        var $this = $(this);
-        var _offsetTop = $this.offset().top;
-        var _workContents = $this.find('.scroll-animation');
-
-        if (_st + _windowHeight / 1.2 >= _offsetTop) {
-          $this.addClass('active');
-          _workContents.addClass('active');
-        } else {
-          $this.removeClass('active');
-          _workContents.removeClass('active');
-        }
-      });
 
       // title-memu animation
       title.each(function(i) {
@@ -102,19 +86,6 @@
       opacity: 1,
       duration: 1
     });
-
-    gsap.to('.stack', {
-      scrollTrigger: {
-        trigger: '.stack',
-        start: 'top 90%',
-        // markers: true,
-        scrub: true,
-        toggleActions: 'restart none none reset'
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1
-    });
   }
 
   function sectionTitleAnimation() {
@@ -140,28 +111,38 @@
     });
   }
 
-  function maskAnimation() {
-    // intro-text
-    gsap.utils.toArray('.scroll-animation-element').forEach(function(section) {
-      var mask1 = $(section).find('.mask1');
-      var mask2 = $(section).find('.mask2');
-      var mask3 = $(section).find('.mask3');
-      var mask4 = $(section).find('.mask4');
-
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 95%',
-          end: 'center 70%',
-          scrub: false,
-          toggleActions: 'restart none none reset'
-        }
-      });
-      tl.to(mask1, { scaleY: 0, duration: 0.5, ease: 'expo.out' }, 0.3);
-      tl.to(mask2, { scaleY: 0, duration: 0.5, ease: 'expo.out' }, 0.5);
-      tl.to(mask3, { scaleY: 0, duration: 0.5, ease: 'expo.out' }, 0.7);
-      tl.to(mask4, { scaleY: 0, duration: 0.5, ease: 'expo.out' }, 0.9);
-    });
-  }
   // ------------------------ ui 함수 -----------------------------//
+
+  // slider
+  function slider() {
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      spaceBetween: 50,
+      // loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets'
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      on: {
+        init: function(swiper) {
+          setTransform(swiper);
+        },
+        slideChange: function(swiper) {
+          setTransform(swiper);
+        }
+      }
+    });
+
+    function setTransform(swiper) {
+      $('.swiper-slide').removeClass('active');
+      const activeIndex = swiper.activeIndex;
+      const activeSlide = swiper.slides[activeIndex];
+      $(activeSlide).addClass('active');
+    }
+  }
 })(this);

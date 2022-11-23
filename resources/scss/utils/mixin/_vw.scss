@@ -1,7 +1,8 @@
 // vw 사용을 위함
 @mixin _vw($property, $value, $break-point: 720px) {
-  #{$property}: rem($value);
-  @media (max-width: $break-point) {
-    #{$property}: vw($value);
-  }
+  // #{$property}: rem($value);
+  #{$property}: vw($value);
+  // @media (max-width: $break-point) {
+  //   #{$property}: vw($value);
+  // }
 }

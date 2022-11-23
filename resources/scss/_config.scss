@@ -1,34 +1,34 @@
 // 기본 셋팅
-$body-base-font: 'NotoSansKR', 'Spoqa Han Sans Neo', 'Gotham', 'Nexa', arial, sans-serif, Arial, dotum, '돋움';
+$body-base-font: 'NotoSansKR', 'Gotham', 'Nexa', arial, sans-serif, Arial, dotum, '돋움';
 $body-font-color: #000;
 $base-font-size: 22px;
 $line-height: 1.5;
 
 // base color
+// black
+$black_10: #333;
+$black_20: #282828;
+
 // Gray
 $gray_10: #666;
 $gray_20: #888;
 $gray_30: #999;
-
-// Blue
-$blue_10: #0062a7; // point color
-$blue_20: #024473; // primary
-
-// Red
-$red_10: #ffcece;
+$gray_40: #efefef;
+$gray_50: #b8b8b8;
 
 // White
 $white: #fff;
 
-// point color
-$blue: #a0afc1;
+// green
+$green_10: #d7dba4;
+$green_20: #a0a473;
 
 // 미디어쿼리 사이즈
 $tb-l: 1320px;
 $tb-s: 1100px;
 $tb-xs: 920px;
 $mo-l: 720px;
-$mo-s: 400px;
+$mo-s: 420px;
 
 // 이미지 url
 $baseUrl: '../images/';
