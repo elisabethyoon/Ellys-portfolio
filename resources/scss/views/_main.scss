@@ -369,6 +369,9 @@
 }
 .slider-contents {
   .swiper-slide {
+    transform: scale(0.7);
+    opacity: 0.6;
+    transition: all 0.8s ease-in-out;
     width: 996px !important;
     padding: 40px 0;
     @media (max-width: $tb-s) {
@@ -384,6 +387,8 @@
       width: 360px !important;
     }
     &.active {
+      transform: scale(1);
+      opacity: 1;
       .project-title {
         transform: translateY(0);
         transition-duration: 1s;
