@@ -14,9 +14,64 @@
     sectionTitleAnimation();
     // project slider
     slider();
+    // popup full-screen
+    fullScreenPopup();
+    // popup close
+    closePopup();
   });
 
   // ------------------------ ui 함수 -----------------------------//
+
+  var dd = null;
+  function fullScreenPopup() {
+    const sliderList = $('.slider-contents > li');
+
+    const fullScreenPopup = $('.full-screen-area');
+    sliderList.find('.btn-more').click(function() {
+      var idx = $(this)
+        .closest('.pj-item')
+        .index();
+
+      fullScreenPopup.addClass('active');
+      fullScreenPopup
+        .find('.wrap-contents')
+        .removeClass('active')
+        .eq(idx)
+        .addClass('active');
+
+      $('body').addClass('scroll-disable');
+
+      // fullScreenPopup.find('.project-section').addClass('show');
+
+      dd = setTimeout(() => {
+        fullScreenPopup.find('.project-section > .side').addClass('active');
+      }, 600);
+      // var contents = fullScreenPopup.eq(idx);
+      // fullScreenPopup.removeClass('active');
+      // contents.addClass('active');
+    });
+  }
+
+  function closePopup() {
+    const fullScreenPopup = $('.full-screen-area');
+
+    fullScreenPopup.find('.btn-popup').click(function() {
+      fullScreenPopup.removeClass('active');
+      fullScreenPopup.find('.wrap-contents').removeClass('active');
+      $('body').removeClass('scroll-disable');
+
+      fullScreenPopup.find('.project-section > .side').removeClass('active');
+
+      clearTimeout(dd);
+      // var idx = $(this)
+      //   .closest('.wrap-contents')
+      //   .index();
+
+      // fullScreenPopup.eq(idx).removeClass('active');
+      // console.log(idx, 'popupidx');
+    });
+  }
+
   function contentsAnimation() {
     /*scroll event*/
     $(window).scroll(function() {
@@ -135,6 +190,17 @@
         slideChange: function(swiper) {
           setTransform(swiper);
         }
+      }
+    });
+
+    $('.btn-more').on({
+      mouseenter: function() {
+        console.log(111);
+        swiper.allowTouchMove = false;
+      },
+      mouseleave: function() {
+        console.log(2222);
+        swiper.allowTouchMove = true;
       }
     });
 
