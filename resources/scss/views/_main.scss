@@ -70,11 +70,12 @@ body {
 /*--- mainVisual ---*/
 .main-visual-contents {
   .gnb-wrap {
+    overflow: hidden;
     display: flex;
     position: fixed;
     z-index: 2;
     transform: translate(-50%, 20px);
-    transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     left: 50%;
     width: 60px;
     height: 60px;
@@ -82,13 +83,23 @@ body {
     align-items: center;
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.6);
+    @media (max-width: $tb-xs) {
+      height: 48px;
+    }
     .list-menu {
-      transform: translateY(110%);
+      transform: translateY(80%);
       opacity: 0;
+      line-height: 1;
       .link-menu {
         color: $white;
         opacity: 0.5;
         font-size: rem(18px);
+        @media (max-width: $tb-xs) {
+          font-size: rem(16px);
+        }
+        @media (max-width: $mo-l) {
+          font-size: rem(14px);
+        }
       }
       &.active {
         .link-menu {
@@ -99,8 +110,14 @@ body {
             position: absolute;
             height: 2px;
             width: 100%;
-            bottom: -14px;
+            bottom: -15px;
             background: #fff;
+            @media (max-width: $tb-xs) {
+              bottom: -10px;
+            }
+            @media (max-width: $mo-l) {
+              bottom: -11px;
+            }
           }
         }
       }

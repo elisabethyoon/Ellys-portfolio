@@ -90,7 +90,7 @@
     var tl = gsap.timeline({});
     tl.to('.main-title', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 0.5);
     tl.to('.main-text', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 1);
-    tl.to('.list-menu', { y: 0, opacity: 1, duration: 1, ease: 'Power1.easeOut' }, 1.5);
+    tl.to('.list-menu', { y: 0, opacity: 1, duration: 1, ease: 'Power1.easeOut' }, 1.2);
 
     gsap.registerPlugin(ScrollTrigger);
     // profile-img
