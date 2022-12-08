@@ -18,11 +18,13 @@
     fullScreenPopup();
     // popup close
     closePopup();
+    //gnbscroll
+    gnbScrollEvent();
   });
 
   // ------------------------ ui 함수 -----------------------------//
 
-  var dd = null;
+  var ep = null;
   function fullScreenPopup() {
     const sliderList = $('.slider-contents > li');
 
@@ -41,14 +43,9 @@
 
       $('body').addClass('scroll-disable');
 
-      // fullScreenPopup.find('.project-section').addClass('show');
-
-      dd = setTimeout(() => {
+      ep = setTimeout(() => {
         fullScreenPopup.find('.project-section > .side').addClass('active');
       }, 600);
-      // var contents = fullScreenPopup.eq(idx);
-      // fullScreenPopup.removeClass('active');
-      // contents.addClass('active');
     });
   }
 
@@ -62,13 +59,7 @@
 
       fullScreenPopup.find('.project-section > .side').removeClass('active');
 
-      clearTimeout(dd);
-      // var idx = $(this)
-      //   .closest('.wrap-contents')
-      //   .index();
-
-      // fullScreenPopup.eq(idx).removeClass('active');
-      // console.log(idx, 'popupidx');
+      clearTimeout(ep);
     });
   }
 
@@ -99,6 +90,7 @@
     var tl = gsap.timeline({});
     tl.to('.main-title', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 0.5);
     tl.to('.main-text', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 1);
+    tl.to('.list-menu', { y: 0, opacity: 1, duration: 1, ease: 'Power1.easeOut' }, 1.5);
 
     gsap.registerPlugin(ScrollTrigger);
     // profile-img
@@ -163,6 +155,41 @@
       tl.to(sectionTitle1, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
       tl.to(sectionTitle2, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
       tl.to(sectionTitle3, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
+    });
+  }
+
+  function gnbScrollEvent() {
+    $('.gnb-wrap').animate(
+      {
+        width: '80%'
+      },
+      1000
+    );
+    $('.list-menu')
+      .eq(0)
+      .addClass('active');
+    $('.link-menu').click(function() {
+      $('html, body').animate(
+        {
+          scrollTop: $($(this).attr('href')).offset().top
+        },
+        700
+      );
+      return false;
+    });
+
+    const sections = $('section');
+    $(window).on('scroll', function() {
+      sections.each(function(index) {
+        var offset_top = $(this).offset().top;
+        var scrollTop = $(window).scrollTop();
+        if (offset_top <= scrollTop + 10) {
+          $('.list-menu').removeClass('active');
+          $('.list-menu')
+            .eq(index)
+            .addClass('active');
+        }
+      });
     });
   }
 

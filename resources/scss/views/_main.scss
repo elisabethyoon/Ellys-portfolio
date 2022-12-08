@@ -69,6 +69,48 @@ body {
 
 /*--- mainVisual ---*/
 .main-visual-contents {
+  .gnb-wrap {
+    display: flex;
+    position: fixed;
+    z-index: 2;
+    transform: translate(-50%, 20px);
+    transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.6);
+    .list-menu {
+      transform: translateY(110%);
+      opacity: 0;
+      .link-menu {
+        color: $white;
+        opacity: 0.5;
+        font-size: rem(18px);
+      }
+      &.active {
+        .link-menu {
+          position: relative;
+          opacity: 1;
+          &::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            bottom: -14px;
+            background: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      transform: translate(-50%, 0);
+      width: 100%;
+      border-radius: 0;
+    }
+  }
   .main-visual-bg {
     @include size(100%, 100vh);
     @include _background-image('main-visual/profile_img.jpg');

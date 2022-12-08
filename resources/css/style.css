@@ -94,6 +94,18 @@ body.scroll-disable { overflow: hidden; }
 @media (max-width: 720px) { .ft-bold { font-size: 0.68182rem; } }
 
 /*--- mainVisual ---*/
+.main-visual-contents .gnb-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; position: fixed; z-index: 2; -webkit-transform: translate(-50%, 20px); transform: translate(-50%, 20px); -webkit-transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); left: 50%; width: 60px; height: 60px; border-radius: 50px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-pack: distribute; justify-content: space-around; background-color: rgba(0, 0, 0, 0.6); }
+
+.main-visual-contents .gnb-wrap .list-menu { -webkit-transform: translateY(110%); transform: translateY(110%); opacity: 0; }
+
+.main-visual-contents .gnb-wrap .list-menu .link-menu { color: #fff; opacity: 0.5; font-size: 0.81818rem; }
+
+.main-visual-contents .gnb-wrap .list-menu.active .link-menu { position: relative; opacity: 1; }
+
+.main-visual-contents .gnb-wrap .list-menu.active .link-menu::before { content: ''; position: absolute; height: 2px; width: 100%; bottom: -14px; background: #fff; }
+
+.main-visual-contents .gnb-wrap.active { -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); width: 100%; border-radius: 0; }
+
 .main-visual-contents .main-visual-bg { width: 100%; height: 100vh; background-image: url("../images/main-visual/profile_img.jpg"); background-position: 50% 50%; background-size: cover; background-attachment: fixed; }
 
 .main-visual-contents .main-visual-bg .bg-inner { background-color: #282828; width: 100%; height: 100%; opacity: 0.4; }
