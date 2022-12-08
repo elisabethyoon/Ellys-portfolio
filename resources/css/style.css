@@ -94,7 +94,7 @@ body.scroll-disable { overflow: hidden; }
 @media (max-width: 720px) { .ft-bold { font-size: 0.68182rem; } }
 
 /*--- mainVisual ---*/
-.main-visual-contents .gnb-wrap { overflow: hidden; display: -webkit-box; display: -ms-flexbox; display: flex; position: fixed; z-index: 2; -webkit-transform: translate(-50%, 20px); transform: translate(-50%, 20px); -webkit-transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); left: 50%; width: 60px; height: 60px; border-radius: 50px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-pack: distribute; justify-content: space-around; background-color: rgba(0, 0, 0, 0.6); }
+.main-visual-contents .gnb-wrap { overflow: hidden; display: -webkit-box; display: -ms-flexbox; display: flex; position: fixed; z-index: 2; -webkit-transform: translate(-50%, 20px); transform: translate(-50%, 20px); -webkit-transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); left: 50%; width: 60px; min-width: 340px; height: 60px; border-radius: 50px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-pack: distribute; justify-content: space-around; background-color: rgba(0, 0, 0, 0.6); }
 
 @media (max-width: 920px) { .main-visual-contents .gnb-wrap { height: 48px; } }
 

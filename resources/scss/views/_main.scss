@@ -78,6 +78,7 @@ body {
     transition: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     left: 50%;
     width: 60px;
+    min-width: 340px;
     height: 60px;
     border-radius: 50px;
     align-items: center;
