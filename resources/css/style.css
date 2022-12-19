@@ -398,7 +398,7 @@ body.scroll-disable { overflow: hidden; }
 
 @media (max-width: 1320px) { .project-section .right-area { padding: 60px 40px; } }
 
-@media (max-width: 920px) { .project-section .right-area { width: 100%; background-color: #d7dba4; } }
+@media (max-width: 920px) { .project-section .right-area { width: 100%; background-color: #bdbdbd; } }
 
 @media (max-width: 720px) { .project-section .right-area { padding: 60px 24px; } }
 
