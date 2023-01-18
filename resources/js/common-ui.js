@@ -20,6 +20,13 @@
     closePopup();
     //gnbscroll
     gnbScrollEvent();
+    // circleEffect
+    main_circle_effect();
+    // textillate animation
+    contactTextAnimation();
+    mainTitleAnimation();
+    // scrollIcon
+    scrollIcon();
   });
 
   // ------------------------ ui 함수 -----------------------------//
@@ -63,20 +70,55 @@
     });
   }
 
+  // textillate main title animation
+  function mainTitleAnimation() {
+    $('.main-title').textillate({
+      loop: false,
+      minDisplayTime: 3000,
+      initialDelay: 1000,
+
+      in: {
+        effect: 'bounceIn',
+        delayScale: 3
+      }
+    });
+  }
+
+  // textillate contact text animation
+  function contactTextAnimation() {
+    $('.pr-text').textillate({
+      loop: true,
+      minDisplayTime: 1000,
+      initialDelay: 0,
+
+      in: {
+        effect: 'flash',
+        delayScale: 3
+      },
+      out: {
+        effect: 'rotateOutUpLeft',
+        delayScale: 3,
+        sync: false,
+        shuffle: true,
+        reverse: false
+      }
+    });
+  }
+
   function contentsAnimation() {
     /*scroll event*/
     $(window).scroll(function() {
       //window scroll-top 변수 처리
       var _st = $(window).scrollTop();
       var _windowHeight = $(window).height();
-      var title = $('#pagelayout .title-menu');
+      var title = $('#pagelayout .title-effect');
 
       // title-memu animation
       title.each(function(i) {
         var $this = $(this);
         var _offsetTop = $this.offset().top;
 
-        if (_st + _windowHeight / 1.4 > _offsetTop) {
+        if (_st + _windowHeight / 1.3 > _offsetTop) {
           $this.addClass('fill');
         } else {
           $this.removeClass('fill');
@@ -86,78 +128,45 @@
   }
 
   function gsapAnimation() {
-    // main-title
     var tl = gsap.timeline({});
-    tl.to('.main-title', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 0.5);
-    tl.to('.main-text', { x: 0, opacity: 1, duration: 1.2, ease: 'Power1.easeOut' }, 1);
+    // gnb menu
     tl.to('.list-menu', { y: 0, opacity: 1, duration: 1, ease: 'Power1.easeOut' }, 1.5);
 
     gsap.registerPlugin(ScrollTrigger);
-    // profile-img
-    gsap.to('.profile-img', {
-      scrollTrigger: {
-        trigger: '.profile-img',
-        start: 'top 85%',
-        // markers: true,
-        scrub: true,
-        toggleActions: 'restart pause reverse pause'
-      },
-      y: -300,
-      duration: 3
-    });
-
-    // about-info-text
-    gsap.to('.about-info-text', {
-      scrollTrigger: {
-        trigger: '.about-info-text',
-        start: 'top 80%',
-        // markers: true,
-        scrub: true,
-        toggleActions: 'restart none none reset'
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1
-    });
-
     // career-contents
     gsap.to('.section-inner', {
       scrollTrigger: {
         trigger: '.section-inner',
-        start: 'top 80%',
-        // markers: true,
-        scrub: true,
+        start: 'top 90%',
         toggleActions: 'restart none none reset'
       },
       y: 0,
-      opacity: 1,
-      duration: 1
+      opacity: 1
     });
   }
 
   function sectionTitleAnimation() {
     // section-memu animation
     gsap.utils.toArray('.scroll-animation-title').forEach(function(e) {
-      var sectionTitle1 = $(e).find('.st01');
-      var sectionTitle2 = $(e).find('.st02');
-      var sectionTitle3 = $(e).find('.st03');
+      var st01 = $(e).find('.st01');
+      var st02 = $(e).find('.st02');
 
       var tl = gsap.timeline({
         scrollTrigger: {
           trigger: e,
           start: 'top 90%',
-          end: 'center 80%',
+          end: 'center 55%',
           scrub: true,
           // markers: true,
           toggleActions: 'restart none none reset'
         }
       });
-      tl.to(sectionTitle1, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
-      tl.to(sectionTitle2, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
-      tl.to(sectionTitle3, { x: 0, opacity: 1, duration: 2, ease: 'power1.out' }, 1);
+      tl.to(st01, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
+      tl.to(st02, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
     });
   }
 
+  // gnbscroll
   function gnbScrollEvent() {
     $('.list-menu')
       .eq(0)
@@ -187,7 +196,19 @@
     });
   }
 
-  // ------------------------ ui 함수 -----------------------------//
+  // circle effect
+  function main_circle_effect() {
+    setTimeout(function() {
+      $('.circle-eff .obj-circle-04').addClass('after-start');
+    }, 6000);
+  }
+
+  // scrollIcon
+  function scrollIcon() {
+    setTimeout(function() {
+      $('.scroll-icon').addClass('show');
+    }, 4000);
+  }
 
   // slider
   function slider() {

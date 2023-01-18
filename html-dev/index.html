@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../resources/plugins/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../resources/plugins/selectric/selectric.css" />
     <link rel="stylesheet" href="../resources/plugins/datepicker/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <script src="../resources/plugins/jquery-2.2.4.min.js"></script>
     <script src="../resources/plugins/swiper/swiper-bundle.min.js"></script>
     <script src="../resources/plugins/selectric/jquery.selectric.js"></script>
@@ -26,6 +27,8 @@
     <script src="../resources/plugins/datepicker/jquery-ui-ko.js"></script>
     <script src="../resources/plugins/datepicker/jquery.ui.monthpicker.js"></script>
     <script src="../resources/js/common-ui.js"></script>
+    <script src="../resources/plugins/lettering/jquery.lettering.min.js"></script>
+    <script src="../resources/plugins/textillate/jquery.textillate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <title>Elisabeth's portfolio</title>
@@ -42,12 +45,33 @@
             <li class="list-menu"><a href="#project" class="link-menu">PROJECT</a></li>
             <li class="list-menu"><a href="#contact" class="link-menu">CONTACT</a></li>
           </ul>
+          <div class="circle-eff">
+            <span class="obj-circle obj-circle-01">
+              <img src="../resources/images/icon/obj-circle-01.svg" alt="원형아이콘">
+            </span>
+            <span class="obj-circle obj-circle-02">
+              <img src="../resources/images/icon/obj-circle-02.svg" alt="원형아이콘">
+            </span>
+            <span class="obj-circle obj-circle-03">
+              <img src="../resources/images/icon/obj-circle-03.svg" alt="원형아이콘">
+            </span>
+            <span class="obj-circle obj-circle-04"></span>
+            <span class="obj-circle obj-circle-05">
+              <img src="../resources/images/icon/obj-circle-05.svg" alt="원형아이콘">
+            </span>
+            <span class="obj-circle obj-circle-06"></span>
+            <span class="obj-circle obj-circle-07">
+              <img src="../resources/images/icon/obj-circle-07.svg" alt="원형아이콘">
+            </span>
+            <span class="obj-circle obj-circle-08">
+              <img src="../resources/images/icon/obj-circle-08.svg" alt="원형아이콘">
+            </span>
+          </div>
           <div class="main-visual-bg">
             <div class="bg-inner"></div>
           </div>
           <div class="title-portfolio">
             <p class="main-title">WELCOME TO MY HOMEPAGE</p>
-            <p class="main-text">함께 일할 멋진 동료가 필요하신가요?</p>
           </div>
           <div class="scroll-icon">
             <img src="../resources/images/icon/icon-scroll-mouse.svg" alt="스크롤다운 이미지" class="icon-mouse" />
@@ -55,19 +79,19 @@
         </section>
         <section id="about" class="about-contents">
           <div class="title-menu">
-            <span class="section-number">01</span>
-            <h2 class="sc-title">ABOUT ME</h2>
+            <span class="title-effect link" data-letters="ABOUT ME">
+              ABOUT ME
+            </span>
           </div>
           <div class="intro-wrap">
             <div class="container-section scroll-animation-title">
-              <div class="about-info-text">
+              <div class="about-info-text st01">
                 <p class="info-about">
                   저는<br />
                   4년차 웹 퍼블리셔 , 2년차 프론트엔드 개발자 윤엘리사벳입니다.<br />
                 </p>
                 <p class="info-about">
-                  퍼블리싱 경력 3년 2개월 간 다양한 UI/UX 를 경험하며, CSS와 JavaScript를 활용한 동적 모션을 좋아하고,<br />
-                  꼼꼼한 시멘틱 마크업을 지향해 왔습니다.<br />
+                  퍼블리싱 경력 3년 2개월 간 다양한 UI/UX 를 경험하며, CSS와 JavaScript, jQuery를 활용한 동적 모션을 좋아하고, 꼼꼼한 시멘틱 마크업을 지향해 왔습니다.<br />
                   프론트엔드 개발자로는 1년 2개월 간 리액트 네이티브로 프로젝트를 경험하며,<br />
                   컴포넌트 단위의 유지보수에 최적화 된 코드를 생각하고 고민하며 기초를 다져왔습니다.
                 </p>
@@ -82,14 +106,17 @@
                 </p>
               </div>
             </div>
-            <img src="../resources/images/profile_img2.jpg" alt="이미지" class="profile-img2" />
+            <div class="scroll-animation-title">
+              <img src="../resources/images/profile_img2.jpg" alt="이미지" class="profile-img st02" />
+            </div>
           </div>
         </section>
         <section id="career" class="career-contents">
           <div class="scroll-animation-title">
             <div class="title-menu">
-              <span class="section-number">02</span>
-              <h2 class="sc-title">CAREER</h2>
+              <span class="title-effect link" data-letters="CAREER">
+                  CAREER
+              </span>
             </div>
             <div class="section-inner">
               <div class="career-lists">
@@ -120,8 +147,9 @@
         </section>
         <section id="project" class="portfolio-contents">
           <div class="title-menu">
-            <span class="section-number">03</span>
-            <h2 class="sc-title">PROJECT</h2>
+            <span class="title-effect link" data-letters="PROJECT">
+                PROJECT
+            </span>
           </div>
           <div class="portfolio-section">
             <div class="swiper mySwiper project-wrap">
@@ -207,7 +235,7 @@
                   <div class="left-area side">
                     <h3 class="detail-title bk-color">PROJECT</h3>
                     <p class="pj-title">보관서비스 프로젝트</p>
-                    <img src="../resources/images/project/subpage-image01.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image01.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <h3 class="detail-title">DESCRIPTION</h3>
@@ -241,7 +269,7 @@
                 <div class="project-section">
                   <div class="left-area side">
                     <p class="pj-title">서비스 피드백 프로젝트</p>
-                    <img src="../resources/images/project/subpage-image02.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image02.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <div class="project-desc">
@@ -280,7 +308,7 @@
                   <div class="left-area side">
                     <h3 class="detail-title bk-color">PROJECT</h3>
                     <p class="pj-title">위매치다이사 리뉴얼</p>
-                    <img src="../resources/images/project/subpage-image03.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image03.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <h3 class="detail-title">DESCRIPTION</h3>
@@ -317,7 +345,7 @@
                 <div class="project-section">
                   <div class="left-area side">
                     <p class="pj-title">위매치다이사 원룸 리뉴얼</p>
-                    <img src="../resources/images/project/subpage-image04.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image04.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <div class="project-desc">
@@ -354,7 +382,7 @@
                 <div class="project-section">
                   <div class="left-area side">
                     <p class="pj-title">위매치다이사 파트너</p>
-                    <img src="../resources/images/project/subpage-image05.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image05.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <div class="project-desc">
@@ -395,7 +423,7 @@
                   <div class="left-area side">
                     <h3 class="detail-title bk-color">PROJECT</h3>
                     <p class="pj-title">마켓디자이너스 리뉴얼</p>
-                    <img src="../resources/images/project/subpage-image06.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image06.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <h3 class="detail-title">DESCRIPTION</h3>
@@ -432,7 +460,7 @@
                 <div class="project-section">
                   <div class="left-area side">
                     <p class="pj-title">마켓디자이너스</p>
-                    <img src="../resources/images/project/subpage-image07.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image07.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <div class="project-desc">
@@ -474,7 +502,7 @@
                   <div class="left-area side">
                     <h3 class="detail-title bk-color">PROJECT</h3>
                     <p class="pj-title">위매치부동산 리뉴얼</p>
-                    <img src="../resources/images/project/subpage-image08.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image08.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <h3 class="detail-title">DESCRIPTION</h3>
@@ -518,7 +546,7 @@
                   <div class="left-area side">
                     <h3 class="detail-title bk-color">PROJECT</h3>
                     <p class="pj-title">위매치머니 리뉴얼</p>
-                    <img src="../resources/images/project/subpage-image09.png" alt="" class="pj-image" />
+                    <img src="../resources/images/project/subpage-image09.png" alt="포트폴리오 이미지" class="pj-image" />
                   </div>
                   <div class="right-area side">
                     <h3 class="detail-title">DESCRIPTION</h3>
@@ -560,18 +588,19 @@
         </section>
         <section id="contact" class="contact-contents">
           <div class="title-menu">
-            <span class="section-number">04</span>
-            <h2 class="sc-title">CONTACT</h2>
+            <span class="title-effect link" data-letters="CONTACT">
+                CONTACT
+            </span>
           </div>
           <div class="contact-section">
             <div class="info-wrapper">
-              <p class="pr-text">함께 일하고 싶은 멋진 동료, 여기있습니다. <br /></p>
+              <p class="pr-text">좋아하는 일을 잘하고 다름을 인정하는, 함께 일하고 싶은 멋진 동료! </p>
               <div class="contact-box">
                 <a href="https://github.com/elisabethyoon" target="_blank" rel="noopener noreferrer" class="link-contact">
                   Github
                 </a>
                 <a href="mailto:careerwoman87@gmail.com" target="_blank" rel="noopener noreferrer" class="link-contact">
-                  e-mail
+                  E-mail
                 </a>
               </div>
             </div>
