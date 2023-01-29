@@ -13,7 +13,11 @@ body {
 /*--- common ---*/
 .title-menu {
   margin-left: -60px;
+  padding-bottom: 80px;
   -webkit-transform: translate3d(0, 0, 0); /* Solves Safari bug because of SVG clipping mask */
+  @media (max-width: $tb-s) {
+    padding-bottom: 60px;
+  }
   @media (max-width: $mo-l) {
     margin-left: 0;
   }
@@ -43,49 +47,63 @@ body {
 
 .title-effect {
   overflow: hidden;
-  line-height: 1.5;
+  // line-height: 1.5;
   font-weight: 700;
-  font-family: 'Gotham';
-  color: #818181;
+  font-family: 'Prompt';
+  font-size: rem(150px);
+  color: #444;
   text-transform: uppercase;
+  @media (max-width: $tb-l) {
+    font-size: rem(125px);
+  }
+  @media (max-width: $tb-s) {
+    font-size: rem(100px);
+  }
+  @media (max-width: $tb-xs) {
+    font-size: rem(80px);
+  }
+  @media (max-width: $mo-l) {
+    text-align: center;
+    font-size: rem(70px);
+  }
+  @media (max-width: $mo-s) {
+    font-size: rem(40px);
+  }
 }
 
 .title-effect.fill {
-  color: #818181;
+  // color: #222;
 }
 
 .title-effect::after {
   content: '';
   position: absolute;
-  height: 20px;
-  width: 102%;
+  height: 15px;
+  width: 100%;
   top: 50%;
-  margin-top: -53px;
-  right: 0;
+  right: -1px;
   background: #fff;
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
-  -webkit-transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
+
   -webkit-transition-timing-function: cubic-bezier(0.25, -0.02, 0.95, 1.01);
   transition-timing-function: cubic-bezier(0.25, -0.02, 0.95, 1.01);
   @media (max-width: $tb-s) {
     height: 12px;
-    margin-top: -33px;
   }
   @media (max-width: $mo-l) {
     height: 10px;
-    margin-top: -26px;
   }
   @media (max-width: $mo-s) {
-    height: 6px;
-    margin-top: -18px;
+    height: 4px;
   }
 }
 
 .title-effect.fill::after {
   -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0) translateY(-50%);
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
 }
 
 .title-effect::before {
@@ -93,15 +111,15 @@ body {
   position: absolute;
   z-index: 2;
   overflow: hidden;
-  color: #4c4c4c;
+  color: #fff;
   white-space: nowrap;
   width: 0%;
-  -webkit-transition: width 0.9s 0.8s;
-  transition: width 0.9s 0.8s;
 }
 
 .title-effect.fill::before {
   width: 100%;
+  -webkit-transition: width 0.9s 0.8s;
+  transition: width 0.9s 0.8s;
 }
 
 /*--- loading title effect ---*/
@@ -112,18 +130,36 @@ body {
   width: max-content;
   top: 50%;
   left: 50%;
-  padding: 10px 10px 0;
+  padding: 20px 10px 0;
   transform: translate(-50%, -50%);
-  transition: 0.8s;
   line-height: 1;
-  font-family: 'Nexa';
+  font-family: 'Prompt';
+  font-weight: 700;
+  font-size: rem(130px);
   color: #242424;
+  letter-spacing: -0.025em;
   &.hide {
     opacity: 0;
   }
+  @media (max-width: $tb-l) {
+    font-size: rem(125px);
+  }
+  @media (max-width: $tb-s) {
+    font-size: rem(100px);
+  }
+  @media (max-width: $tb-xs) {
+    font-size: rem(80px);
+  }
+  @media (max-width: $mo-l) {
+    text-align: center;
+    font-size: rem(70px);
+  }
+  @media (max-width: $mo-s) {
+    font-size: rem(40px);
+  }
 }
 .loading-title-effect.fill {
-  color: #242424;
+  color: #000;
 }
 .loading-title-effect::after {
   content: '';
@@ -133,13 +169,13 @@ body {
   top: 0;
   right: 0;
   z-index: -1;
-  background: #181818;
+  background: #222;
   -webkit-transform: translate3d(101%, 0, 0);
   transform: translate3d(101%, 0, 0);
-  -webkit-transition: -webkit-transform 1.5s;
-  transition: transform 1.5s;
-  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
-  transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.5, 1);
+  transition-timing-function: cubic-bezier(0.6, 0, 0.5, 1);
 }
 .loading-title-effect.fill::after {
   -webkit-transform: translate3d(0, 0, 0);
@@ -157,10 +193,11 @@ body {
   overflow: hidden;
   white-space: nowrap;
   width: 0%;
-  -webkit-transition: width 1.5s;
-  transition: width 1.5s;
-  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
-  transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+  -webkit-transition: width 1s;
+  transition: width 1s;
+  // transition-delay: 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.5, 1);
+  transition-timing-function: cubic-bezier(0.6, 0, 0.5, 1);
 }
 .loading-title-effect.fill span::before {
   width: 100%;
@@ -210,7 +247,8 @@ body {
   left: 50%;
   height: 100%;
   transform: translateY(-100%);
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  // transition: 0.25s cubic-bezier(0.12, 0.71, 0, 1.01);
+  transition: 0.45s cubic-bezier(0.6, 0, 0.5, 1);
 }
 
 /*--- mainVisual ---*/
@@ -415,21 +453,21 @@ body {
   min-width: 375px;
   overflow: hidden;
   .main-title {
-    margin-top: 100px;
-    font-size: rem(80px);
-    font-family: 'Gotham';
-    font-weight: 500;
+    font-size: rem(160px);
+    font-family: 'Prompt';
+    font-weight: 700;
+    letter-spacing: 8px;
     color: transparent;
     -webkit-text-stroke: 1px #fff;
-    @media (max-width: $tb-l) {
-      font-size: rem(64px);
-    }
     @media (max-width: $tb-s) {
-      font-size: rem(48px);
+      font-size: rem(120px);
     }
     @media (max-width: $mo-l) {
       text-align: center;
-      font-size: rem(36px);
+      font-size: rem(70px);
+    }
+    @media (max-width: $mo-s) {
+      font-size: rem(50px);
     }
   }
 }
@@ -587,7 +625,7 @@ body {
     }
     .company {
       font-size: rem(25px);
-      color: #dedede;
+      color: #fff;
       @media (max-width: $tb-xs) {
         font-size: rem(22px);
       }
@@ -598,7 +636,7 @@ body {
     .sub-text {
       margin-top: 8px;
       font-size: rem(16px);
-      color: $gray_30;
+      color: #ccc;
       @media (max-width: $tb-xs) {
         margin-top: 0;
       }
@@ -617,7 +655,7 @@ body {
       li {
         margin-top: 6px;
         font-size: rem(16px);
-        color: #666;
+        color: #999;
         @media (max-width: $mo-l) {
           word-break: keep-all;
           font-size: rem(14px);
@@ -636,6 +674,7 @@ body {
   padding: 80px 0;
   .title-menu {
     margin-left: 20px;
+    padding-bottom: 80px;
   }
   .portfolio-section {
     margin-top: -40px;
@@ -666,19 +705,34 @@ body {
   }
   .swiper-button-next,
   .swiper-rtl .swiper-button-prev {
-    right: 40px;
+    // right: 40px;
+    // margin-top: 40px;
+    right: 50%;
     margin-top: 40px;
+    margin-right: -600px;
+
+    @media (max-width: $tb-l) {
+      right: 40px;
+      margin-right: 0;
+    }
     @media (max-width: $mo-l) {
-      right: 20px;
+      // right: 20px;
       margin-top: 0px;
     }
   }
   .swiper-button-prev,
   .swiper-rtl .swiper-button-next {
-    left: 40px;
+    // left: 40px;
+    // margin-top: 40px;
+    left: 50%;
     margin-top: 40px;
+    margin-left: -600px;
+    @media (max-width: $tb-l) {
+      left: 40px;
+      margin-left: 0;
+    }
     @media (max-width: $mo-l) {
-      left: 20px;
+      // left: 20px;
       margin-top: 0px;
     }
   }
@@ -720,7 +774,7 @@ body {
       z-index: -1;
       font-size: rem(120px);
       font-weight: 600;
-      color: #838383;
+      color: #e2e2e2;
       line-height: 1;
       text-align: center;
       opacity: 0;
@@ -815,7 +869,8 @@ body {
       border-radius: 40px;
       border: 2px solid $white;
       font-size: rem(24px);
-      font-family: 'Nexa';
+      font-family: 'Prompt';
+      font-weight: 400;
       color: $white;
       cursor: pointer;
       animation: BtnEffect 0.7s infinite alternate linear;
@@ -1023,10 +1078,12 @@ body {
 
 .detail-title {
   display: inline-block;
+  font-family: 'Prompt';
   font-size: rem(36px);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 60px;
   color: $gray_60;
+  letter-spacing: 1px;
   &::after {
     content: '';
     display: block;

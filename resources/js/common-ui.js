@@ -80,11 +80,11 @@
     $('.main-title').textillate({
       loop: false,
       minDisplayTime: 3000,
-      initialDelay: 2300,
+      initialDelay: 2600,
 
       in: {
         effect: 'bounceIn',
-        delayScale: 3
+        delayScale: 5
       }
     });
   }
@@ -133,18 +133,25 @@
   }
 
   function gsapAnimation() {
-    var tl2 = gsap.timeline({});
+    $('body').addClass('scroll-disable');
+    var tl = gsap.timeline({});
     // main visual timeline animation
-    tl2.to('.loading-title-effect', { css: { className: 'loading-title-effect link fill' } });
-    tl2.to('.loading-title-effect', { opacity: 0, duration: 1, delay: 0.5 });
-    tl2.to('.loading-line', { yPercent: 200, delay: 0.5 });
-    tl2.to('.loading-dim', {
+    tl.to('.loading-title-effect', { css: { className: 'loading-title-effect link fill' } });
+    tl.to('.loading-title-effect', { opacity: 0, duration: 0.3, delay: 1.6 });
+    tl.to('.loading-line', { yPercent: 200, delay: 0.1 });
+    tl.to('.loading-dim', {
       css: { className: 'dimShow loading-dim' },
-      delay: 0.8
+      delay: 0.7
     });
-    tl2.to('.gnb-wrap', { css: { className: 'gnbShow gnb-wrap' } });
-    tl2.to('.list-menu', { y: 0, opacity: 1, duration: 0.6, ease: 'Power1.easeOut', delay: 0.5 });
-    tl2.to('.loading-dim', { display: 'none', delay: -2 });
+    tl.to('.gnb-wrap', { css: { className: 'gnbShow gnb-wrap' } });
+    tl.to('.list-menu', { y: 0, opacity: 1, duration: 0.6, ease: 'Power1.easeOut', delay: 0.5 });
+    tl.to('.loading-dim', {
+      display: 'none',
+      delay: -2,
+      onComplete: function() {
+        $('body').removeClass('scroll-disable');
+      }
+    });
 
     gsap.registerPlugin(ScrollTrigger);
     // career-contents
