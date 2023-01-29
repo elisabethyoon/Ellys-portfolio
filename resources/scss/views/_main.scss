@@ -8,6 +8,7 @@ body {
 }
 #pagelayout {
   min-width: 375px;
+  background-color: #1a1a1a;
 }
 /*--- common ---*/
 .title-menu {
@@ -22,7 +23,6 @@ body {
   text-decoration: none;
   position: relative;
   font-size: rem(140px);
-  font-family: 'Gotham';
   letter-spacing: -1.5px;
   line-height: 1;
   color: #bfc3cf;
@@ -45,19 +45,20 @@ body {
   overflow: hidden;
   line-height: 1.5;
   font-weight: 700;
-  color: #bfc3cf;
+  font-family: 'Gotham';
+  color: #818181;
   text-transform: uppercase;
 }
 
 .title-effect.fill {
-  color: #bfc3cf;
+  color: #818181;
 }
 
 .title-effect::after {
   content: '';
   position: absolute;
   height: 20px;
-  width: 100%;
+  width: 102%;
   top: 50%;
   margin-top: -53px;
   right: 0;
@@ -92,7 +93,7 @@ body {
   position: absolute;
   z-index: 2;
   overflow: hidden;
-  color: #404c75;
+  color: #4c4c4c;
   white-space: nowrap;
   width: 0%;
   -webkit-transition: width 0.9s 0.8s;
@@ -101,6 +102,115 @@ body {
 
 .title-effect.fill::before {
   width: 100%;
+}
+
+/*--- loading title effect ---*/
+.loading-title {
+  position: absolute;
+  width: max-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s;
+  &.hide {
+    opacity: 0;
+  }
+}
+.loading-title-effect {
+  z-index: 99;
+  overflow: hidden;
+  padding: 10px 10px 0;
+  line-height: 1;
+  font-family: 'Nexa';
+  color: #242424;
+}
+.loading-title-effect.fill {
+  color: #242424;
+}
+.loading-title-effect::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #181818;
+  -webkit-transform: translate3d(101%, 0, 0);
+  transform: translate3d(101%, 0, 0);
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+}
+.loading-title-effect.fill::after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.loading-title-effect span {
+  display: block;
+  position: relative;
+}
+.loading-title-effect span::before {
+  content: attr(data-letters);
+  position: absolute;
+  color: #fff;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0%;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
+}
+.loading-title-effect.fill span::before {
+  width: 100%;
+}
+
+/*--- loading dim ---*/
+.loading-dim {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    height: 100%;
+    transition: 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  &::before {
+    width: 50%;
+    animation: loadingDimLeft 0.6s both;
+    animation-delay: 3s;
+    background-color: #000;
+  }
+  &::after {
+    width: 50%;
+    animation: loadingDimRight 0.6s both;
+    animation-delay: 3s;
+    background-color: #000;
+  }
+  &.hide {
+    display: none;
+  }
+}
+.loading-line {
+  position: absolute;
+  width: 1px;
+  z-index: 10;
+  background-color: #fff;
+  left: 50%;
+  height: 100%;
+  animation: loadingLine 0.6s both;
+  animation-delay: 2.3s;
+  animation-duration: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /*--- mainVisual ---*/
@@ -169,8 +279,8 @@ body {
   }
   .main-visual-bg {
     @include size(100%, 100vh);
-    @include _background-image('main-visual/image.jpg');
-    background-position: 50% 70%;
+    @include _background-image('main-visual/main-visual.png');
+    background-position: 20% 100%;
     background-size: cover;
     background-attachment: fixed;
     .bg-inner {
@@ -343,7 +453,7 @@ body {
 
 /*--- About ---*/
 .about-contents {
-  padding: 80px;
+  padding: 80px 0 80px 80px;
   @media (max-width: $mo-l) {
     padding: 100px 24px 40px;
   }
@@ -373,7 +483,7 @@ body {
         margin-top: 40px;
         font-size: rem(19px);
         line-height: 1.95;
-        color: #333;
+        color: #dedede;
         letter-spacing: -0.2px;
         @media (max-width: $tb-s) {
           font-size: rem(16px);
@@ -389,10 +499,7 @@ body {
     }
   }
   .profile-img {
-    opacity: 0;
-    transform: translateX(250px);
-    @include size(600px, 450px);
-    border-radius: 20px;
+    @include size(700px, 525px);
     @media (max-width: $tb-l) {
       @include size(450px, 338px);
     }
@@ -401,6 +508,25 @@ body {
     }
     @media (max-width: $mo-s) {
       @include size(100%, 100%);
+    }
+  }
+}
+
+.mask-image-animation {
+  overflow: hidden;
+  position: relative;
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    @include size(100%);
+    background-color: #1a1a1a;
+    &.left {
+      transform-origin: left;
+    }
+    &.right {
+      transform-origin: right;
     }
   }
 }
@@ -437,7 +563,7 @@ body {
     margin-right: 100px;
     font-weight: 500;
     font-size: rem(20px);
-    color: $gray_10;
+    color: #dedede;
     @media (max-width: $tb-xs) {
       width: 30%;
       margin-right: 0;
@@ -459,6 +585,7 @@ body {
     }
     .company {
       font-size: rem(25px);
+      color: #dedede;
       @media (max-width: $tb-xs) {
         font-size: rem(22px);
       }
@@ -488,6 +615,7 @@ body {
       li {
         margin-top: 6px;
         font-size: rem(16px);
+        color: #666;
         @media (max-width: $mo-l) {
           word-break: keep-all;
           font-size: rem(14px);
@@ -586,7 +714,7 @@ body {
       z-index: -1;
       font-size: rem(120px);
       font-weight: 600;
-      color: $gray_40;
+      color: #838383;
       line-height: 1;
       text-align: center;
       opacity: 0;
@@ -608,13 +736,11 @@ body {
   }
   .pj-box {
     width: 100%;
-    height: 682px;
+    height: 619px;
     margin: 0 auto;
-    border-radius: 30px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 10px 10px 15px 5px $gray_50;
     @media (max-width: $tb-s) {
       width: 700px;
       height: 479px;
@@ -626,7 +752,6 @@ body {
     @media (max-width: $mo-l) {
       width: 420px;
       height: 288px;
-      border-radius: 20px;
     }
     @media (max-width: $mo-s) {
       width: 360px;
@@ -644,12 +769,10 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 30px;
   opacity: 0;
   background-color: #000;
   transition: opacity 1s;
   @media (max-width: $mo-l) {
-    border-radius: 20px;
   }
   &:hover {
     opacity: 0.7;
@@ -752,34 +875,44 @@ body {
   min-width: 375px;
   &.active {
     visibility: visible;
-    &::before {
-      left: 0;
-    }
-    &::after {
-      right: 0;
+    .dim-effect {
+      pointer-events: auto;
+      visibility: visible;
+      .inner-dim-effect {
+        transform: scale(1);
+        transition-duration: 0.75s;
+      }
     }
   }
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
+  .dim-effect {
+    position: fixed;
     top: 0;
-    z-index: 9;
+    left: 0;
+    width: 100%;
     height: 100%;
-    transition: 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
-    @media (max-width: $tb-xs) {
-      display: none;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+    backface-visibility: hidden;
+    outline: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .inner-dim-effect {
+      width: 200vw;
+      height: 200vw;
+      color: #fefefe;
+      background-color: rgba(3, 3, 3, 1);
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      flex: none;
+      transform: scale(0);
+      backface-visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  }
-  &::before {
-    width: 60%;
-    left: -60%;
-    background-color: $white;
-  }
-  &::after {
-    width: 40%;
-    right: -40%;
-    background-image: linear-gradient(180deg, rgb(160, 164, 207) 0%, rgb(234, 252, 255) 100%);
   }
 }
 .wrap-contents-container {
@@ -822,12 +955,12 @@ body {
     .pj-image {
       width: 100%;
       border-radius: 30px;
-      box-shadow: 10px 10px 15px 5px $gray_50;
+      box-shadow: 3px 2px 15px 2px $gray_10;
     }
     .pj-title {
       font-size: rem(30px);
       padding-bottom: 20px;
-      color: $black_10;
+      color: $gray_60;
       @media (max-width: $mo-l) {
         font-size: rem(26px);
       }
@@ -892,20 +1025,14 @@ body {
   font-size: rem(36px);
   font-weight: 600;
   margin-bottom: 60px;
-  color: $white;
+  color: $gray_60;
   &::after {
     content: '';
     display: block;
     width: 100%;
     height: 1px;
     margin-top: 2px;
-    background-color: $white;
-  }
-  &.bk-color {
-    color: $black_10;
-    &::after {
-      background-color: $black_10;
-    }
+    background-color: $gray_60;
   }
 }
 
@@ -923,7 +1050,7 @@ body {
     margin-bottom: 10px;
     font-size: rem(20px);
     font-weight: 600;
-    color: $white;
+    color: $gray_60;
     align-items: center;
   }
   .icon-link {
@@ -940,7 +1067,7 @@ body {
     font-size: rem(16px);
     font-weight: 300;
     line-height: 26px;
-    color: $white;
+    color: $gray_60;
     word-break: keep-all;
   }
 }
@@ -974,6 +1101,7 @@ body {
         letter-spacing: 2px;
         word-break: keep-all;
         text-align: center;
+        color: $white;
         @media (max-width: $tb-s) {
           font-size: rem(30px);
         }
@@ -1001,13 +1129,13 @@ body {
           @include size(130px, 82px);
           margin: 0 30px;
           border-radius: 20px;
-          background-color: #3f4c75;
+          background-color: #979ba8;
           font-size: rem(24px);
           font-weight: 700;
           color: $white;
           &:hover {
             background-color: $white;
-            color: #3f4c75;
+            color: #979ba8;
           }
           @media (max-width: $mo-l) {
             @include size(100px, 60px);
@@ -1024,6 +1152,32 @@ body {
 }
 
 // keyframes
+@keyframes loadingLine {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes loadingDimLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes loadingDimRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
 @keyframes scrollIcon {
   from {
     transform: translateY(0);

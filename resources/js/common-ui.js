@@ -27,6 +27,10 @@
     mainTitleAnimation();
     // scrollIcon
     scrollIcon();
+    // loadingTitleEffect
+    loadingTitleEffect();
+    loadingTitle();
+    loadingDim();
   });
 
   // ------------------------ ui 함수 -----------------------------//
@@ -149,20 +153,25 @@
     // section-memu animation
     gsap.utils.toArray('.scroll-animation-title').forEach(function(e) {
       var st01 = $(e).find('.st01');
-      var st02 = $(e).find('.st02');
+      var profileImg = $(e).find('.profile-img');
+      var mask = $(e).find('.mask');
 
       var tl = gsap.timeline({
         scrollTrigger: {
           trigger: e,
-          start: 'top 90%',
-          end: 'center 55%',
-          scrub: true,
+          start: 'top 95%',
+          end: 'center 70%',
+          scrub: false,
           // markers: true,
           toggleActions: 'restart none none reset'
         }
       });
-      tl.to(st01, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
-      tl.to(st02, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
+      tl.to(st01, { x: 0, opacity: 1, ease: Expo.out, duration: 1.5 }, 0.5);
+
+      tl.to(mask, { scaleX: 0, duration: 1.5, ease: Expo.out }, 0.4);
+      tl.from(profileImg, { scale: 1.3, duration: 2.5 }, 0.4);
+
+      // tl.to(profileImg, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
     });
   }
 
@@ -210,6 +219,24 @@
     }, 4000);
   }
 
+  // loading title effect
+  function loadingTitleEffect() {
+    setTimeout(function() {
+      $('.loading-title').addClass('hide');
+      // .css('display', 'none');
+    }, 1600);
+  }
+
+  function loadingTitle() {
+    $('.loading-title').addClass('fill');
+  }
+
+  function loadingDim() {
+    setTimeout(function() {
+      $('.loading-dim').addClass('hide');
+    }, 4000);
+  }
+
   // slider
   function slider() {
     const swiper = new Swiper('.mySwiper', {
@@ -217,6 +244,11 @@
       centeredSlides: true,
       spaceBetween: 0,
       // loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      //   // pauseOnMouseEnter: true
+      // },
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets'
