@@ -105,24 +105,22 @@ body {
 }
 
 /*--- loading title effect ---*/
-.loading-title {
+.loading-title-effect {
+  z-index: 99;
+  overflow: hidden;
   position: absolute;
   width: max-content;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.4s;
-  &.hide {
-    opacity: 0;
-  }
-}
-.loading-title-effect {
-  z-index: 99;
-  overflow: hidden;
   padding: 10px 10px 0;
+  transform: translate(-50%, -50%);
+  transition: 0.8s;
   line-height: 1;
   font-family: 'Nexa';
   color: #242424;
+  &.hide {
+    opacity: 0;
+  }
 }
 .loading-title-effect.fill {
   color: #242424;
@@ -138,8 +136,8 @@ body {
   background: #181818;
   -webkit-transform: translate3d(101%, 0, 0);
   transform: translate3d(101%, 0, 0);
-  -webkit-transition: -webkit-transform 1s;
-  transition: transform 1s;
+  -webkit-transition: -webkit-transform 1.5s;
+  transition: transform 1.5s;
   -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
   transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
 }
@@ -159,8 +157,8 @@ body {
   overflow: hidden;
   white-space: nowrap;
   width: 0%;
-  -webkit-transition: width 1s;
-  transition: width 1s;
+  -webkit-transition: width 1.5s;
+  transition: width 1.5s;
   -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
   transition-timing-function: cubic-bezier(0.7, 0, 0.8, 1);
 }
@@ -176,26 +174,29 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  &::before,
-  &::after {
-    content: '';
+  .dim-left,
+  .dim-right {
     position: absolute;
     top: 0;
     z-index: 9;
+    width: 50%;
     height: 100%;
+    background-color: #000;
     transition: 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
-  &::before {
-    width: 50%;
-    animation: loadingDimLeft 0.6s both;
-    animation-delay: 3s;
-    background-color: #000;
+  .dim-left {
+    transform: translateX(0%);
   }
-  &::after {
-    width: 50%;
-    animation: loadingDimRight 0.6s both;
-    animation-delay: 3s;
-    background-color: #000;
+  .dim-right {
+    transform: translateX(100%);
+  }
+  &.dimShow {
+    .dim-left {
+      transform: translateX(-100%);
+    }
+    .dim-right {
+      transform: translateX(200%);
+    }
   }
   &.hide {
     display: none;
@@ -208,16 +209,17 @@ body {
   background-color: #fff;
   left: 50%;
   height: 100%;
-  animation: loadingLine 0.6s both;
-  animation-delay: 2.3s;
-  animation-duration: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateY(-100%);
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /*--- mainVisual ---*/
 .main-visual-contents {
   .gnb-wrap {
-    animation: gnbAni 0.8s both;
-    animation-delay: 0.6s;
+    &.gnbShow {
+      animation: gnbAni 0.8s both;
+    }
+    opacity: 0;
     animation-duration: cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     display: flex;
@@ -645,13 +647,13 @@ body {
 .project-wrap {
   .swiper-button-next,
   .swiper-button-prev {
-    color: $white;
+    color: #000;
     width: 60px;
     height: 60px;
     font-size: rem(16px);
-    border: 2px solid #000;
+    border: 2px solid $white;
     border-radius: 50%;
-    background-color: #000;
+    background-color: $white;
     @media (max-width: $mo-l) {
       width: 44px;
       height: 44px;
@@ -707,6 +709,10 @@ body {
         transform: translateY(0);
         transition-duration: 1s;
         opacity: 1;
+      }
+      .inner-contents {
+        opacity: 0.7;
+        transition-delay: 0.8s;
       }
     }
     .project-title {
@@ -772,12 +778,6 @@ body {
   opacity: 0;
   background-color: #000;
   transition: opacity 1s;
-  @media (max-width: $mo-l) {
-  }
-  &:hover {
-    opacity: 0.7;
-    background-color: #000;
-  }
   .project-text-area {
     display: flex;
     flex-direction: column;
@@ -882,6 +882,9 @@ body {
         transform: scale(1);
         transition-duration: 0.75s;
       }
+      @media (max-width: $mo-s) {
+        transform: scale(2);
+      }
     }
   }
   .dim-effect {
@@ -947,7 +950,6 @@ body {
     }
     @media (max-width: $tb-xs) {
       width: 100%;
-      background-color: $white;
     }
     @media (max-width: $mo-l) {
       padding: 60px 24px;
@@ -984,7 +986,6 @@ body {
     }
     @media (max-width: $tb-xs) {
       width: 100%;
-      background-image: linear-gradient(180deg, rgb(160, 164, 207) 0%, rgb(234, 252, 255) 100%);
     }
     @media (max-width: $mo-l) {
       padding: 60px 24px;
@@ -1015,7 +1016,7 @@ body {
     background-size: 100%;
     @media (max-width: $tb-xs) {
       @include size(24px, 24px);
-      @include _background-image('icon/icon-close-bk-24x24.png');
+      // @include _background-image('icon/icon-close-bk-24x24.png');
     }
   }
 }
@@ -1151,33 +1152,6 @@ body {
   }
 }
 
-// keyframes
-@keyframes loadingLine {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes loadingDimLeft {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-@keyframes loadingDimRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(200%);
-  }
-}
-
 @keyframes scrollIcon {
   from {
     transform: translateY(0);
@@ -1196,6 +1170,7 @@ body {
 }
 @keyframes gnbAni {
   0% {
+    opacity: 1;
     @include size(40px);
     border-radius: 50%;
   }
@@ -1210,6 +1185,7 @@ body {
     border-radius: 25px;
   }
   100% {
+    opacity: 1;
     width: 80%;
     height: 60px;
     border-radius: 50px;

@@ -27,15 +27,12 @@
     mainTitleAnimation();
     // scrollIcon
     scrollIcon();
-    // loadingTitleEffect
-    loadingTitleEffect();
-    loadingTitle();
-    loadingDim();
   });
 
   // ------------------------ ui 함수 -----------------------------//
 
   var ep = null;
+  var flag = false;
   function fullScreenPopup() {
     const sliderList = $('.slider-contents > li');
 
@@ -43,7 +40,9 @@
     sliderList.find('.btn-more').click(function() {
       var idx = $(this)
         .closest('.pj-item')
-        .index();
+        .attr('data-index');
+      mainSwiper.autoplay.stop();
+      flag = true;
 
       fullScreenPopup.addClass('active');
       fullScreenPopup
@@ -64,6 +63,8 @@
     const fullScreenPopup = $('.full-screen-area');
 
     fullScreenPopup.find('.btn-popup').click(function() {
+      mainSwiper.autoplay.start();
+      flag = false;
       fullScreenPopup.removeClass('active');
       fullScreenPopup.find('.wrap-contents').removeClass('active');
       $('body').removeClass('scroll-disable');
@@ -79,7 +80,7 @@
     $('.main-title').textillate({
       loop: false,
       minDisplayTime: 3000,
-      initialDelay: 1000,
+      initialDelay: 2300,
 
       in: {
         effect: 'bounceIn',
@@ -132,9 +133,18 @@
   }
 
   function gsapAnimation() {
-    var tl = gsap.timeline({});
-    // gnb menu
-    tl.to('.list-menu', { y: 0, opacity: 1, duration: 1, ease: 'Power1.easeOut' }, 1.5);
+    var tl2 = gsap.timeline({});
+    // main visual timeline animation
+    tl2.to('.loading-title-effect', { css: { className: 'loading-title-effect link fill' } });
+    tl2.to('.loading-title-effect', { opacity: 0, duration: 1, delay: 0.5 });
+    tl2.to('.loading-line', { yPercent: 200, delay: 0.5 });
+    tl2.to('.loading-dim', {
+      css: { className: 'dimShow loading-dim' },
+      delay: 0.8
+    });
+    tl2.to('.gnb-wrap', { css: { className: 'gnbShow gnb-wrap' } });
+    tl2.to('.list-menu', { y: 0, opacity: 1, duration: 0.6, ease: 'Power1.easeOut', delay: 0.5 });
+    tl2.to('.loading-dim', { display: 'none', delay: -2 });
 
     gsap.registerPlugin(ScrollTrigger);
     // career-contents
@@ -170,8 +180,6 @@
 
       tl.to(mask, { scaleX: 0, duration: 1.5, ease: Expo.out }, 0.4);
       tl.from(profileImg, { scale: 1.3, duration: 2.5 }, 0.4);
-
-      // tl.to(profileImg, { x: 0, opacity: 1, ease: 'power1.inOut', duration: 2.5 }, 1);
     });
   }
 
@@ -219,36 +227,19 @@
     }, 4000);
   }
 
-  // loading title effect
-  function loadingTitleEffect() {
-    setTimeout(function() {
-      $('.loading-title').addClass('hide');
-      // .css('display', 'none');
-    }, 1600);
-  }
-
-  function loadingTitle() {
-    $('.loading-title').addClass('fill');
-  }
-
-  function loadingDim() {
-    setTimeout(function() {
-      $('.loading-dim').addClass('hide');
-    }, 4000);
-  }
-
   // slider
+  let mainSwiper = null;
   function slider() {
-    const swiper = new Swiper('.mySwiper', {
+    mainSwiper = new Swiper('.mySwiper', {
       slidesPerView: 'auto',
       centeredSlides: true,
       spaceBetween: 0,
-      // loop: true,
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false
-      //   // pauseOnMouseEnter: true
-      // },
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false
+        // pauseOnMouseEnter: true
+      },
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets'
@@ -269,12 +260,21 @@
 
     $('.btn-more').on({
       mouseenter: function() {
-        console.log(111);
-        swiper.allowTouchMove = false;
+        mainSwiper.allowTouchMove = false;
       },
       mouseleave: function() {
-        console.log(2222);
-        swiper.allowTouchMove = true;
+        mainSwiper.allowTouchMove = true;
+      }
+    });
+
+    $('.inner-contents').on({
+      mouseenter: function() {
+        mainSwiper.autoplay.stop();
+      },
+      mouseleave: function() {
+        if (!flag) {
+          mainSwiper.autoplay.start();
+        }
       }
     });
 
