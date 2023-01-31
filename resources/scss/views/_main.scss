@@ -918,6 +918,12 @@ body {
 .project-image05 {
   @include _background-image('project/project-image05.png');
 }
+.project-image06 {
+  @include _background-image('project/project-image06.png');
+}
+.project-image07 {
+  @include _background-image('project/project-image07.png');
+}
 
 /*--- portfolio popup ---*/
 .full-screen-area {
