@@ -486,9 +486,9 @@ body {
   &.show {
     opacity: 1;
   }
-  .icon-mouse {
-    animation: scrollIcon 0.5s infinite alternate linear;
-  }
+}
+.icon-mouse {
+  animation: scrollIcon 0.5s infinite alternate linear;
 }
 
 /*--- About ---*/
@@ -780,14 +780,17 @@ body {
       opacity: 0;
       transform: translateY(60%);
       transition-duration: 1s;
-      @media (max-width: $tb-s) {
+      @media (max-width: $tb-l) {
         font-size: rem(100px);
       }
+      @media (max-width: $tb-s) {
+        font-size: rem(90px);
+      }
       @media (max-width: $tb-xs) {
-        font-size: rem(84px);
+        font-size: rem(70px);
       }
       @media (max-width: $mo-l) {
-        font-size: rem(62px);
+        font-size: rem(58px);
       }
       @media (max-width: $mo-s) {
         font-size: rem(48px);
@@ -924,6 +927,11 @@ body {
 .project-image07 {
   @include _background-image('project/project-image07.png');
 }
+.project-image08 {
+  @include _background-image('project/line-heart.png');
+  background-size: contain !important;
+  background-color: #fff !important;
+}
 
 /*--- portfolio popup ---*/
 .full-screen-area {
@@ -1053,6 +1061,282 @@ body {
     }
   }
 }
+
+// gsap animation project
+.contents-area {
+  opacity: 0;
+  transition: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 1.5s;
+  &.active {
+    opacity: 1;
+  }
+}
+.intro-fix-wrap {
+  overflow: hidden;
+  height: 55vh;
+  padding-top: 100px;
+  text-align: center;
+  background-color: #000;
+  .intro-fix-title {
+    font-family: 'Prompt';
+    font-weight: 700;
+    font-size: rem(160px);
+    color: #fff;
+    letter-spacing: -1.5px;
+    @media (max-width: $tb-l) {
+      font-size: rem(120px);
+    }
+    @media (max-width: $tb-s) {
+      font-size: rem(100px);
+    }
+    @media (max-width: $tb-xs) {
+      font-size: rem(80px);
+    }
+    @media (max-width: $mo-l) {
+      font-size: rem(64px);
+    }
+    @media (max-width: $mo-s) {
+      font-size: rem(48px);
+    }
+  }
+}
+.intro-section {
+  height: 45vh;
+  background-color: #000;
+  .effect-line {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    height: auto;
+    border-top: 8px solid #fff;
+  }
+  .intro-title {
+    padding-top: 150px;
+    text-align: center;
+    color: #fff;
+    font-size: rem(30px);
+    @media (max-width: $tb-xs) {
+      font-size: rem(26px);
+    }
+    @media (max-width: $mo-l) {
+      font-size: rem(20px);
+    }
+  }
+}
+.comparisonSection {
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  .comparison-title {
+    padding: 40px 30px;
+    width: 60%;
+    color: #fff;
+  }
+}
+// .comparison-wrapper {
+//   overflow: hidden;
+//   position: relative;
+//   // min-height: 100vh;
+//   min-width: 100vw;
+// }
+.comparisonImage {
+  width: 100%;
+  height: 100%;
+  @media (max-width: $mo-l) {
+    height: 70%;
+  }
+  @media (max-width: $mo-s) {
+    height: 50%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.afterImage {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  transform: translate(100%, 0px);
+  img {
+    transform: translate(-100%, 0px);
+  }
+}
+
+.section-card-effect {
+  position: relative;
+  height: 100vh;
+  background: #000;
+  .card-title {
+    width: 60%;
+    padding: 40px 30px;
+    color: #fff;
+    @media (max-width: $tb-s) {
+      width: 100%;
+      padding: rem(30px);
+    }
+    @media (max-width: $tb-xs) {
+      width: 100%;
+      padding: 30px;
+      font-size: rem(20px);
+    }
+    @media (max-width: $mo-l) {
+      font-size: rem(14px);
+    }
+  }
+  .card-contents-item {
+  }
+  .track-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px 0;
+    .track-left {
+      font-size: rem(30px);
+      font-weight: bold;
+      line-height: 1.15;
+      @media (max-width: $tb-xs) {
+        font-size: rem(20px);
+      }
+      @media (max-width: $mo-l) {
+        font-size: rem(14px);
+      }
+    }
+    .track-right {
+      text-align: right;
+      .track-num {
+        margin-top: -27px;
+        margin-bottom: 20px;
+        font-size: rem(80px);
+        font-weight: bold;
+        @media (max-width: $tb-xs) {
+          margin-top: -25px;
+          margin-bottom: 0;
+          font-size: rem(50px);
+        }
+        @media (max-width: $mo-l) {
+          margin-top: -10px;
+          font-size: rem(34px);
+        }
+      }
+      .track-text {
+        font-size: rem(16px);
+        line-height: 1;
+        @media (max-width: $mo-l) {
+          font-size: rem(12px);
+        }
+      }
+    }
+  }
+  .card-item01 {
+    z-index: 4;
+    width: 20vw;
+    height: 14vh;
+    background-color: #fff;
+  }
+  .card-item02 {
+    z-index: 3;
+    width: 45vw;
+    height: 34vh;
+    background: #eef4fb;
+    @media (max-width: $mo-l) {
+      width: 50vw;
+      height: 30vh;
+    }
+  }
+  .card-item03 {
+    z-index: 2;
+    width: 76vw;
+    height: 64vh;
+    @include _background-image('project/animation/transition-image01.jpg');
+    background-position: 100% 20%;
+    @media (max-width: $mo-l) {
+      width: 74vw;
+      height: 60vh;
+    }
+  }
+  .card-item04 {
+    z-index: 1;
+    width: 100vw;
+    height: 88vh;
+    background: #404754;
+  }
+}
+
+.section-seperate-effect {
+  overflow: hidden;
+  height: 100vh;
+  background-color: #fff;
+  .seperate-title {
+    padding: 80px 30px 50px;
+    width: 60%;
+    @media (max-width: $tb-l) {
+      padding: 80px 30px 80px;
+      width: 100%;
+    }
+    @media (max-width: $tb-s) {
+      padding: 40px 30px;
+    }
+    @media (max-width: $tb-xs) {
+      font-size: rem(20px);
+    }
+    @media (max-width: $mo-l) {
+      font-size: rem(16px);
+    }
+  }
+  .wrap-seperate {
+    display: flex;
+    overflow: hidden;
+    margin: 0 16px;
+    .seperate01 {
+      @include _background-image('project/animation/contents-image04.png');
+      background-position: 0 10%;
+      @media (max-width: $mo-l) {
+        background-position: 30% 0%;
+      }
+    }
+    .seperate02 {
+      @include _background-image('project/animation/contents-image05.jpg');
+    }
+    .seperate03 {
+      @include _background-image('project/animation/contents-image07.jpg');
+    }
+  }
+  .view-seperate-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    margin: 0 4px;
+    @include size(100%, 500px);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
+.section-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  .footer-title {
+    color: #fff;
+    font-family: 'Prompt';
+    font-weight: 700;
+    font-size: rem(60px);
+    @media (max-width: $mo-l) {
+      font-size: rem(40px);
+    }
+    @media (max-width: $mo-s) {
+      font-size: rem(26px);
+    }
+  }
+}
+// gsap animation project
 
 .btn-popup {
   position: fixed;
