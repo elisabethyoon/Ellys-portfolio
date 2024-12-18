@@ -300,22 +300,22 @@ body {
         }
         &.active {
             .link-menu {
-                position: relative;
-                opacity: 1;
-                &::before {
-                    content: '';
-                    position: absolute;
-                    height: 2px;
-                    width: 100%;
-                    bottom: -15px;
-                    background: #fff;
-                    @media (max-width: $tb-xs) {
-                    bottom: -10px;
-                    }
-                    @media (max-width: $mo-l) {
-                    bottom: -11px;
-                    }
+            position: relative;
+            opacity: 1;
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                bottom: -15px;
+                background: #fff;
+                @media (max-width: $tb-xs) {
+                bottom: -10px;
                 }
+                @media (max-width: $mo-l) {
+                bottom: -11px;
+                }
+            }
             }
         }
     }
@@ -352,7 +352,6 @@ body {
     .obj-circle {
         display: block;
         position: absolute;
-        z-index: 1;
         img {
             display: block;
             width: 100%;
@@ -459,33 +458,33 @@ body {
 }
 
 .title-portfolio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
     @include size(100%, 100vh);
     min-width: 375px;
     .main-title {
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         font-size: rem(160px);
         font-family: 'Prompt';
         font-weight: 700;
         letter-spacing: 8px;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
-        // transition-duration: 0.4s;
-        // opacity:0;
+        transition-duration: 0.4s;
+        opacity:0;
 
-        // &.active {
-        //     opacity:0 !important;
-        //     transform: translate(-50%, -100%);
-        // }
+        &.active {
+            opacity:0 !important;
+            transform: translate(-50%, -100%);
+        }
         @media (max-width: $tb-s) {
             font-size: rem(120px);
         }
@@ -515,16 +514,6 @@ body {
         &.active {
             opacity:1;
             transform: translate(-50%, -50%);
-        }
-        @media (max-width: $tb-s) {
-            font-size: rem(80px);
-        }
-        @media (max-width: $mo-l) {
-            text-align: center;
-            font-size: rem(50px);
-        }
-        @media (max-width: $mo-s) {
-            font-size: rem(30px);
         }
     }
 }
@@ -979,18 +968,12 @@ body {
     padding: 80px 0;
     .title-menu {
         margin-left: 20px;
-        padding-bottom: 80px;
+        padding-bottom: 0;
     }
     .portfolio-section {
         margin-top: -40px;
-        opacity: 0;
-        transform: translateY(150px);
-        transition-duration: 0.8s;
         @media (max-width: $mo-l) {
             margin-top: 0;
-        }
-        &.active {
-            transform: translateY(0);
         }
     }
 }
@@ -1154,15 +1137,10 @@ body {
     transition: opacity 1s;
     .project-text-area {
         display: flex;
-        justify-content: center;
         position: absolute;
         left: 50%;
-        bottom: 100px;
-        width: 100%;
-        transform: translateX(-50%);
-        @media (max-width: $mo-l) {
-            bottom: 50px;
-        }
+        top: 50%;
+        transform: translate(-50%, -50%);
         // .pj-text {
         //     padding-top: 100px;
         //     line-height: 32px;
@@ -1187,34 +1165,37 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 240px;
             height: 60px;
-            padding: 0 30px;
+            margin-right: 40px;
             border-radius: 40px;
             border: 2px solid $white;
             font-size: rem(18px);
-            // font-family: 'Prompt';
+            font-family: 'Prompt';
             font-weight: 400;
             color: $white;
             cursor: pointer;
             // animation: BtnEffect 0.7s infinite alternate linear;
             @media (max-width: $tb-s) {
-                
+                width: 180px;
                 height: 60px;
                 font-size: rem(20px);
             }
             @media (max-width: $tb-xs) {
+                width: 100px;
                 height: 42px;
                 font-size: rem(16px);
             }
             @media (max-width: $mo-l) {
+                width: 88px;
                 height: 36px;
                 font-size: rem(14px);
             }
             @media (max-width: $mo-s) {
+                width: 78px;
                 height: 30px;
                 font-size: rem(12px);
                 border: 1px solid $white;
-                bottom: 30px;
             }
             &:hover {
                 background-color: $white;
@@ -1225,58 +1206,20 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 240px;
             height: 60px;
-            padding: 0 30px;
-            margin-left: 40px;
             border-radius: 40px;
             border: 2px solid $white;
             font-size: rem(20px);
-            // font-family: 'Prompt';
+            font-family: 'Prompt';
             font-weight: 400;
             color: $white;
             cursor: pointer;
-            @media (max-width: $tb-s) {
-                height: 60px;
-                font-size: rem(20px);
-            }
-            @media (max-width: $tb-xs) {
-                height: 42px;
-                font-size: rem(16px);
-            }
-            @media (max-width: $mo-l) {
-                height: 36px;
-                margin-left: 10px;
-                font-size: rem(14px);
-            }
-            @media (max-width: $mo-s) {
-                height: 30px;
-                font-size: rem(12px);
-                border: 1px solid $white;
-            }
             &:hover {
                 background-color: $white;
                 color: #000;
             }
         }
-    }
-    .info-txt {
-        position: absolute;
-        right: 50px;
-        bottom: 50px;
-        color: #fff;
-        font-size: rem(20px);
-        @media (max-width: $tb-s) {
-            font-size: rem(20px);
-        }
-        @media (max-width: $tb-xs) {
-            font-size: rem(16px);
-        }
-        @media (max-width: $mo-l) {
-            right: 20px;
-            bottom: 14px;
-            font-size: rem(12px);
-        }
-       
     }
 }
 
