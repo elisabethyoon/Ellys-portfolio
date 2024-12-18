@@ -2421,7 +2421,7 @@ body.scroll-disable {
 }
 .contact-contents .contact-section {
   margin-top: 80px;
-  padding-bottom: 300px;
+  padding-bottom: 200px;
 }
 @media (max-width: 720px) {
   .contact-contents .contact-section {
