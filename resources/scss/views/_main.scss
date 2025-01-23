@@ -983,8 +983,8 @@ body {
     }
     .portfolio-section {
         margin-top: -40px;
-        opacity: 0;
-        transform: translateY(150px);
+        // opacity: 0;
+        // transform: translateY(150px);
         transition-duration: 0.8s;
         @media (max-width: $mo-l) {
             margin-top: 0;
@@ -1380,7 +1380,7 @@ body {
             padding-bottom: 20px;
             color: $gray_60;
             @media (max-width: $mo-l) {
-                font-size: rem(26px);
+                font-size: rem(20px);
             }
         }
     }
@@ -1730,13 +1730,26 @@ body {
         background-color: $gray_60;
     }
 }
-
+.project-sub-txt {
+    font-size: rem(20px);
+    font-weight: 600;
+    color: $white;
+    span {
+        font-size: rem(18px);
+        font-weight: 400;
+        word-break: keep-all;
+        @media (max-width: $mo-l) {
+            font-size: rem(16px);
+        }
+    }
+}
 .project-desc {
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 150px;
     @media (max-width: $tb-xs) {
-        margin: 0;
+        margin-bottom: 0;
     }
+    
     .work-desc-box {
         margin-bottom: 50px;
     }

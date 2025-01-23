@@ -96,14 +96,14 @@ Global.utils = {
     
             // title-memu animation
             title.each(function(i) {
-            var $this = $(this);
-            var _offsetTop = $this.offset().top;
-    
-            if (_st + _windowHeight / 1.3 > _offsetTop) {
-                $this.addClass('fill');
-            } else {
-                $this.removeClass('fill');
-            }
+                var $this = $(this);
+                var _offsetTop = $this.offset().top;
+        
+                if (_st + _windowHeight / 1.3 > _offsetTop) {
+                    $this.addClass('fill');
+                } else {
+                    $this.removeClass('fill');
+                }
             });
         });
     },
